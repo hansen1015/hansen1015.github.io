@@ -777,3 +777,22 @@ img {
         background-color: var(--bg-color, #ffffff);
     }
 }
+
+/* Fix table text visibility */
+main table tbody td {
+    color: var(--text-primary, #1a202c);
+}
+
+/* Dark mode table fixes */
+@media (prefers-color-scheme: dark) {
+    main table tbody tr {
+        background: #2d3748;
+        border-color: #4a5568;
+    }
+    main table tbody td {
+        color: #e2e8f0;
+    }
+    main table tbody td::before {
+        color: #90cdf4;
+    }
+}
