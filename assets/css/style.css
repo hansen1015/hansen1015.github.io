@@ -693,3 +693,53 @@ img {
     margin-top: 15px;
     opacity: 0.85;
 }
+
+/* Follow.it Form Styling */
+.followit-form {
+    margin-top: 15px;
+}
+.followit-form .form-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.followit-form .email-input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    min-width: 250px;
+    max-width: 100%;
+}
+.followit-form .subscribe-btn {
+    padding: 12px 25px;
+    background: #ffffff;
+    color: #667eea;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.followit-form .subscribe-btn:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+}
+.followit-form .subscription-note {
+    font-size: 0.85em;
+    margin-top: 15px;
+    opacity: 0.85;
+}
+@media (max-width: 600px) {
+    .followit-form .form-row {
+        flex-direction: column;
+    }
+    .followit-form .email-input {
+        min-width: 100%;
+    }
+    .followit-form .subscribe-btn {
+        width: 100%;
+    }
+}
