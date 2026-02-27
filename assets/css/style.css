@@ -743,3 +743,37 @@ img {
         width: 100%;
     }
 }
+
+/* Mobile Card-Style Tables */
+@media (max-width: 768px) {
+    main table thead {
+        display: none;
+    }
+    main table tbody tr {
+        display: block;
+        background: var(--bg-color, #ffffff);
+        border: 1px solid var(--border-color, #e2e8f0);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    main table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border: none;
+        text-align: right;
+    }
+    main table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #667eea;
+        text-align: left;
+        padding-right: 1rem;
+    }
+    main table tbody tr:hover {
+        background-color: var(--bg-color, #ffffff);
+    }
+}
