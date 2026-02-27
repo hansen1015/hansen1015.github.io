@@ -419,3 +419,88 @@ body .home table tbody tr {
         font-size: 0.75em !important;
     }
 }
+
+
+/* Search Page - Fix text visibility */
+.search-container #search-input {
+    background-color: #ffffff !important;
+    color: #1a202c !important;
+    border-color: #667eea !important;
+}
+
+.search-container #search-input::placeholder {
+    color: #718096 !important;
+}
+
+.search-result-item {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+.search-result-item h3 a {
+    color: #667eea !important;
+}
+
+.search-meta,
+.search-date,
+.search-excerpt,
+.search-stats {
+    color: #4a5568 !important;
+}
+
+.search-categories .category {
+    background: #667eea !important;
+    color: #ffffff !important;
+}
+
+.no-results {
+    color: #4a5568 !important;
+}
+
+mark {
+    background: #ebf4ff !important;
+    color: #5a67d8 !important;
+}
+
+/* Dark mode search fixes */
+@media (prefers-color-scheme: dark) {
+    .search-container #search-input {
+        background-color: #1f2937 !important;
+        color: #f9fafb !important;
+        border-color: #4a5568 !important;
+    }
+
+    .search-container #search-input::placeholder {
+        color: #9ca3af !important;
+    }
+
+    .search-result-item {
+        background-color: #1f2937 !important;
+        border-color: #374151 !important;
+    }
+
+    .search-result-item h3 a {
+        color: #93c5fd !important;
+    }
+
+    .search-meta,
+    .search-date,
+    .search-excerpt,
+    .search-stats {
+        color: #d1d5db !important;
+    }
+
+    .search-categories .category {
+        background: #667eea !important;
+        color: #ffffff !important;
+    }
+
+    .no-results {
+        color: #d1d5db !important;
+    }
+
+    mark {
+        background: #374151 !important;
+        color: #93c5fd !important;
+    }
+}
