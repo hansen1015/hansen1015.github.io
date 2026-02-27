@@ -1,3 +1,118 @@
+/* Responsive Tables - Mobile Friendly */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px; /* Forces scroll on small screens */
+    background: var(--bg-color, #ffffff);
+}
+
+main table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+}
+
+main table thead th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+main table tbody tr {
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+    transition: background-color 0.2s ease;
+}
+
+main table tbody tr:hover {
+    background-color: var(--hover-bg, #f7fafc);
+}
+
+main table tbody tr:last-child {
+    border-bottom: none;
+}
+
+main table tbody td {
+    padding: 1rem;
+    vertical-align: top;
+    line-height: 1.6;
+}
+
+/* Dark mode table styling */
+@media (prefers-color-scheme: dark) {
+    .table-wrapper {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    main table {
+        background: var(--bg-color, #1a202c);
+    }
+
+    main table tbody tr {
+        border-bottom-color: #2d3748;
+    }
+
+    main table tbody tr:hover {
+        background-color: #2d3748;
+    }
+}
+
+/* Mobile-specific table adjustments */
+@media (max-width: 600px) {
+    .table-wrapper {
+        margin: 1rem -1rem; /* Extend to edges on mobile */
+        border-radius: 0;
+    }
+
+    main table thead th {
+        padding: 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    main table tbody td {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    /* Ensure scroll indicator */
+    .table-wrapper::after {
+        content: '← Scroll →';
+        display: block;
+        text-align: center;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        color: #667eea;
+        background: rgba(102, 126, 234, 0.1);
+    }
+}
+
+/* Content tables (in posts) - more flexible */
+article table {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
+}
+
+article table tr, 
+article table td, 
+article table th {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+
 /* AI Disclosure Banner - Prominent Top Notice */
 .ai-banner {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
