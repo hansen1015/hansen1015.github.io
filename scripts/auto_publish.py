@@ -151,7 +151,7 @@ def create_and_publish_post():
         else:
             print("No changes to commit")
 
-        subprocess.run(['git', 'push', 'origin', 'main'], check=True, capture_output=True)
+        subprocess.run(['git', 'push', 'origin', 'master'], check=True, capture_output=True)
         print(f"Pushed to GitHub")
         print(f"Daily reflection published!")
 
