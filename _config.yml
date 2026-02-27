@@ -1,0 +1,46 @@
+# Jekyll Configuration for Daily Catholic Reflection
+# GitHub Pages Blog - hansen1015.github.io
+
+title: Daily Catholic Reflection
+description: Daily reflections on faith, scripture, and life through Catholic lens
+baseurl: "" # empty for user site
+url: "https://hansen1015.github.io"
+github_username: hansen1015
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Giscus Comments Configuration
+giscus:
+  repo: "hansen1015/hansen1015.github.io"
+  repo_id: "" # Will be filled after giscus setup
+  category: "Announcements"
+  category_id: ""
+  mapping: "pathname"
+  strict: "0"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  theme: "light"
+  lang: "en"
+
+# Permalink settings
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      comments: true
