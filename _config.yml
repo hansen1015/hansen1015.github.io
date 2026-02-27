@@ -40,7 +40,7 @@ giscus:
   strict: "0"
   reactions_enabled: "1"
   emit_metadata: "0"
-  input_position: "bottom"
+  input_position: "top"
   theme: "preferred_color_scheme"
   dark_theme: "dark"
   lang: "en"
