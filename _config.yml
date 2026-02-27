@@ -29,18 +29,19 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-# Giscus Comments Configuration
+# Giscus Comments Configuration - ENABLED
 giscus:
-  enabled: false  # Set to true after configuring at giscus.app
+  enabled: true
   repo: "hansen1015/hansen1015.github.io"
-  repo_id: ""  # Get from giscus.app
-  category: "Announcements"
-  category_id: ""
+  repo_id: "MDEwOlJlcG9zaXRvcnkyMzMwMDc2MjA="
+  category: "General"
+  category_id: "DIC_kwDODeNqBM4C3URw"
   mapping: "pathname"
   strict: "0"
   reactions_enabled: "1"
   emit_metadata: "0"
-  theme: "light"
+  input_position: "bottom"
+  theme: "preferred_color_scheme"
   dark_theme: "dark"
   lang: "en"
 
