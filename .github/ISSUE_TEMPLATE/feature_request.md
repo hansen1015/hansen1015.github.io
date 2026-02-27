@@ -1,20 +1,26 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: 💡 Suggestion or Prayer Request
+about: Suggest a topic, saint, or share a prayer intention
 title: ''
-labels: ''
+labels: 'suggestion'
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Type**
+- [ ] Topic suggestion (saint, scripture, liturgical season)
+- [ ] Prayer request
+- [ ] Feature improvement
+- [ ] Other
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Your Suggestion/Request**
+Describe your idea, topic suggestion, or prayer intention.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Why is this important?**
+How would this help you or other readers?
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Related Scripture or Saint** (if applicable)
+Any specific Bible passage, saint, or Church teaching related to your suggestion.
+
+**Additional Context**
+Any other details you'd like to share.

@@ -1,38 +1,35 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: 🐛 Content or Technical Issue
+about: Report a problem with the blog content or functionality
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Issue Type**
+- [ ] Content error (theology, scripture, dates)
+- [ ] Technical problem (layout, comments, mobile)
+- [ ] Broken link or image
+- [ ] Other (please describe)
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Describe the Issue**
+A clear description of what's wrong.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Location**
+- Post URL or page: 
+- Section where issue appears:
+
+**Expected Behavior**
+What should appear or happen instead?
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+If applicable, add screenshots to help explain.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**Device (for technical issues)**
+- Device: [e.g., iPhone, Desktop]
+- Browser: [e.g., Chrome, Safari]
+- OS: [e.g., iOS, Windows]
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+**Additional Context**
+Any other information that might help.
