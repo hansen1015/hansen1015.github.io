@@ -83,6 +83,20 @@ footer {
     color: #718096;
 }
 
+.ai-disclosure {
+    background: #f7fafc;
+    border-left: 4px solid #f6ad55;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.ai-disclosure-small {
+    font-size: 0.85em;
+    color: #a0aec0;
+    margin-top: 10px;
+}
+
 .cross-icon {
     color: #667eea;
 }
