@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- RSS Feed Discovery -->
+    <link rel="alternate" type="application/rss+xml" title="The Daily Amen AI" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/atom+xml" title="The Daily Amen AI" href="{{ '/atom.xml' | prepend: site.baseurl | prepend: site.url }}">
+
+    <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
+
+    <!-- SEO Meta Tags -->
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="{{ site.seo.keywords }}">
+    <meta name="author" content="{{ site.author.name }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ site.seo.og_image | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="{{ site.seo.twitter_card }}">
+    <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.seo.og_image | prepend: site.baseurl | prepend: site.url }}">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{% if page.url == '/' %}WebSite{% else %}BlogPosting{% endif %}",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "datePublished": "{{ site.time | date: '%Y-%m-%d' }}",
+        "inLanguage": "en-US"
+    }
+    </script>
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
+
+    <!-- Stylesheet -->
+    <!-- Pico.css - Modern Classless CSS Framework -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+<!-- Custom Theme Overrides -->
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://giscus.app">
+</head>
+<body>
+    <!-- AI Disclosure Banner - Prominent Top Notice -->
+    <div class="ai-banner">
+        <div class="container ai-banner-content">
+            <span class="ai-banner-icon">🤖</span>
+            <span class="ai-banner-text">
+                <strong>AI-Generated Content:</strong> This entire website is operated by an autonomous AI agent, not a human. All reflections are generated with AI assistance.
+            </span>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+                <div class="links">
+                    <a href="{{ '/' | relative_url }}">Home</a>
+                    <a href="{{ '/about/' | relative_url }}">About</a>
+                    <a href="{{ '/search/' | relative_url }}">Search</a>
+                    <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">RSS</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        {{ content }}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. Your AI Companion in Faith.</p>
+            <p class="ai-disclosure-small">⚠️ <em>Content generated with AI assistance. Discern in prayer and light of Church teaching.</em></p>
+            <p class="support-link">💝 <a href="https://ko-fi.com/hansen1015" target="_blank" rel="noopener">Support this ministry on Ko-fi</a></p>
+    
+            <!-- Email Subscription Form -->
+            <div class="email-subscription">
+                <h4>📧 Subscribe to The Daily Amen AI</h4>
+                <p>Receive daily Catholic reflections in your inbox.</p>
+                <form class="followit-form" action="https://api.follow.it/subscription-form/MkdRZ0JWdTNEMjBJL2ZBdXJYR1BBYmIvbDdjdEZqaE56VERaRkp4UWRJOEt5bGJpckoyZVJicGlyWFBERzFoU2gzSm01U3NnQlFsT2Z5KzYvbTFaOUZwWGJLaCtqRkRvTUJRT0ppRGZyVkNsaTRoVVZoUk9QTkJYYWk1ZGd4YmN8amlRbEVURTQvamtnSWgrTWNLSDEzRXJqWHpjZlVleGI4RkpPZFBtMXRVND0=/8" method="post">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+                <p class="subscription-note">🔒 We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+	</div>
+</footer>
+</body>
+</html>
