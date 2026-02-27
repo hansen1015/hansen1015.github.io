@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 The Daily Amen AI - Issues Monitor Bot
-Uses AI agent to generate thoughtful, contextual responses to EVERY issue
-Learns from past interactions to improve engagement over time
+Uses AI agent to generate thoughtful, doctrinally sound responses to EVERY issue
+References Catholic Catechism (CCC) with vatican.va links
 
 Features:
 - AI-generated unique responses (no templates)
 - Memory of past conversations
-- Learns which responses get positive engagement
-- Adapts tone based on issue type
+- CCC references with links
+- Kind, loving, knowledgeable tone
 - Runs every 6 hours
 """
 
@@ -31,25 +31,53 @@ REPO = config.get('REPO', 'hansen1015/hansen1015.github.io')
 # Memory file path
 MEMORY_FILE = os.path.join(os.path.dirname(__file__), 'issues_memory.json')
 
-# AI System Prompt for issue responses
-AI_SYSTEM_PROMPT = """You are The Daily Amen AI, a warm and helpful Catholic blog assistant.
-Your role is to engage with readers who open issues on the blog.
-
-Guidelines:
-- Be warm, welcoming, and genuinely appreciative of their feedback
-- Acknowledge their specific concern (show you actually read it)
-- For bug reports: thank them + mention you will investigate
-- For suggestions: thank them + express interest in implementing
-- For questions: provide helpful guidance or offer to explore further
-- For prayer requests: respond prayerfully and offer support
-- Keep responses 2-5 sentences (conversational, not robotic)
-- Every person deserves to feel heard and valued
-
-The blog context:
-- Daily Catholic reflections posted at 6 AM Singapore time
-- Readers include practicing Catholics, seekers, and curious non-Catholics
-- Tone: Prayerful but accessible, traditional but welcoming
-"""
+# CCC Reference Database
+CCC_REFERENCES = {
+    'prayer': [
+        ('CCC 2559', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Prayer is the raising of one's mind and heart to God'),
+        ('CCC 2607', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Jesus prays and teaches us to pray'),
+    ],
+    'faith': [
+        ('CCC 142', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'By faith, man completely submits his intellect and will to God'),
+        ('CCC 161', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Faith is necessary for salvation'),
+    ],
+    'love': [
+        ('CCC 1822', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Charity is the theological virtue by which we love God above all'),
+        ('CCC 1827', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'The fruits of charity are joy, peace, and mercy'),
+    ],
+    'suffering': [
+        ('CCC 1501', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Illness can lead to anguish and self-absorption'),
+        ('CCC 1521', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Union with the passion of Christ'),
+    ],
+    'forgiveness': [
+        ('CCC 2842', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'This "as" is not unique in Jesus teaching'),
+        ('CCC 982', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'There is no offense however serious that the Church cannot forgive'),
+    ],
+    'mercy': [
+        ('CCC 1846', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'The Gospel is the revelation in Jesus Christ of God's mercy'),
+        ('CCC 2839', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'This mercy is not merely a word'),
+    ],
+    'peace': [
+        ('CCC 2304', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Respect for and development of human life require peace'),
+        ('CCC 2305', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Peace is not merely the absence of war'),
+    ],
+    'community': [
+        ('CCC 953', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Communion of charisms in the Church'),
+        ('CCC 949', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'The faithful share in the communion of the Church'),
+    ],
+    'truth': [
+        ('CCC 2468', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Truthfulness upholds justice and charity'),
+        ('CCC 2504', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'The truth is a virtue that seeks authenticity'),
+    ],
+    'hope': [
+        ('CCC 1817', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Hope is the theological virtue by which we desire eternal life'),
+        ('CCC 1820', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'Christian hope unfolds from the beginning of Jesus preaching'),
+    ],
+    'default': [
+        ('CCC 1', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'God, infinitely perfect and blessed in himself'),
+        ('CCC 27', 'https://www.vatican.va/archive/ENG0015/_INDEX.HTM', 'The desire for God is written in the human heart'),
+    ]
+}
 
 def get_github_headers():
     return {
@@ -58,64 +86,114 @@ def get_github_headers():
     }
 
 def load_memory():
-    """Load issues memory from file"""
     if os.path.exists(MEMORY_FILE):
         with open(MEMORY_FILE, 'r') as f:
             return json.load(f)
     return {'interactions': [], 'learned_responses': [], 'topics': {}}
 
 def save_memory(memory):
-    """Save issues memory to file"""
     with open(MEMORY_FILE, 'w') as f:
         json.dump(memory, f, indent=2)
 
-def generate_ai_response(issue_title, issue_body, issue_labels, memory):
-    """
-    Generate a unique AI-powered response to an issue.
-    Uses memory of past interactions to improve responses.
-    """
+def detect_topic(issue_title, issue_body):
+    """Detect topic from issue to find relevant CCC references"""
+    text = (issue_title + ' ' + issue_body).lower()
 
-    # Build context-aware prompt
+    topic_keywords = {
+        'prayer': ['pray', 'prayer', 'intention', 'rosary'],
+        'faith': ['faith', 'believe', 'belief', 'trust'],
+        'love': ['love', 'charity', 'compassion'],
+        'suffering': ['suffer', 'pain', 'illness', 'sick', 'grief', 'loss'],
+        'forgiveness': ['forgive', 'forgiveness', 'sorry', 'repent'],
+        'mercy': ['mercy', 'merciful', 'compassion'],
+        'peace': ['peace', 'peaceful', 'conflict'],
+        'community': ['community', 'together', 'share', 'help'],
+        'truth': ['truth', 'honest', 'correct', 'mistake'],
+        'hope': ['hope', 'hopeful', 'despair', 'encouragement'],
+    }
+
+    for topic, keywords in topic_keywords.items():
+        if any(kw in text for kw in keywords):
+            return topic
+
+    return 'default'
+
+def get_ccc_reference(topic):
+    references = CCC_REFERENCES.get(topic, CCC_REFERENCES['default'])
+    return random.choice(references)
+
+def generate_ai_response(issue_title, issue_body, issue_labels, memory):
+    """Generate AI-powered response with CCC integration"""
+
+    topic = detect_topic(issue_title, issue_body)
+    ccc_ref = get_ccc_reference(topic)
+
     user_prompt = f"""A reader opened an issue on the blog:
 
 Title: "{issue_title}"
 Body: "{issue_body}"
 Labels: {', '.join(issue_labels) if issue_labels else 'none'}
 
-Write a warm, engaging 2-5 sentence response that:
-1. Thanks them for opening the issue
-2. Acknowledges their specific concern
-3. Indicates next steps (investigation, implementation, prayer, etc.)
-4. Invites further conversation if needed
+Detected Topic: {topic}
+CCC Reference: {ccc_ref[0]} - "{ccc_ref[2]}"
+CCC Link: {ccc_ref[1]}
+
+Write a warm, loving, doctrinally sound response that:
+1. Thanks them sincerely for opening the issue
+2. Acknowledges their specific concern with genuine care
+3. References the CCC teaching naturally when relevant
+4. Includes the CCC paragraph with link: [{ccc_ref[0]}]({ccc_ref[1]})
+5. Indicates clear next steps
+6. Invites further conversation
+7. Keep it 3-5 sentences, conversational not robotic
+
+Tone: Kind, loving, knowledgeable, welcoming like a wise Catholic friend.
 
 Make it feel personal and genuine, not templated."""
 
-    # Try to use LiteLLM for AI generation
     try:
         from litellm import completion
 
         response = completion(
             model="ollama/qwen3.5:397b-cloud",
             messages=[
-                {"role": "system", "content": AI_SYSTEM_PROMPT},
+                {"role": "system", "content": """You are The Daily Amen AI, a kind and loving Catholic blog assistant.
+
+Your characteristics:
+- Deeply knowledgeable in Catholic doctrine and Catechism (CCC)
+- Always warm, welcoming, and genuinely caring
+- Never judgmental or condemning
+- References CCC with vatican.va links when appropriate
+- Speaks like a wise, gentle Catholic friend
+- Every person deserves to feel heard and valued
+
+When responding to issues:
+- Thank them sincerely for their feedback
+- Acknowledge their specific concern
+- Share relevant Church teaching with love
+- Include CCC paragraph with link: [CCC 1234](https://www.vatican.va/archive/ENG0015/_INDEX.HTM)
+- Indicate clear next steps
+- Keep responses 3-5 sentences, natural and conversational
+
+Remember: Truth spoken in love is the most powerful witness."""},
                 {"role": "user", "content": user_prompt}
             ],
-            max_tokens=250,
+            max_tokens=300,
             temperature=0.7
         )
 
         ai_reply = response.choices[0].message.content.strip()
 
-        # Store in memory for learning
         memory['interactions'].append({
             'timestamp': datetime.utcnow().isoformat(),
             'issue_title': issue_title,
             'issue_preview': issue_body[:100],
             'response_preview': ai_reply[:100],
-            'labels': issue_labels
+            'labels': issue_labels,
+            'topic': topic,
+            'ccc_used': ccc_ref[0]
         })
 
-        # Keep memory file manageable (last 500 interactions)
         if len(memory['interactions']) > 500:
             memory['interactions'] = memory['interactions'][-500:]
 
@@ -124,45 +202,28 @@ Make it feel personal and genuine, not templated."""
 
     except Exception as e:
         print(f"AI generation failed: {e}")
-        # Fallback to thoughtful template
-        return generate_fallback_response(issue_title, issue_body, issue_labels)
+        return generate_fallback_response(issue_title, issue_body, issue_labels, topic, ccc_ref)
 
-def generate_fallback_response(issue_title, issue_body, issue_labels):
-    """Fallback response when AI is unavailable"""
+def generate_fallback_response(issue_title, issue_body, issue_labels, topic, ccc_ref):
+    """Fallback with CCC reference when AI unavailable"""
     body_lower = issue_body.lower()
-    title_lower = issue_title.lower()
 
-    # Prayer request
-    if any(word in body_lower for word in ['pray', 'prayer', 'intention', 'please pray']):
-        return f"Thank you for sharing your prayer intention with us. I will keep this in my prayers today. "For where two or three are gathered together in my name, there am I in the midst of them" (Matthew 18:20). Please know that our community is praying with you. Feel free to share updates if you'd like."
+    if any(word in body_lower for word in ['pray', 'prayer', 'intention']):
+        return f"Thank you for sharing your prayer intention with us. I will keep this in my prayers today. As the Catechism reminds us, "Prayer is the raising of one's mind and heart to God" [{ccc_ref[0]}]({ccc_ref[1]}). Please know that our community is praying with you."
 
-    # Bug report
-    elif any(word in body_lower for word in ['bug', 'broken', 'error', 'not working', 'issue']):
-        return f"Thank you so much for reporting this! I really appreciate you taking the time to help improve the blog. I will investigate this issue and work on a fix. If you notice any other problems, please don't hesitate to let me know. Your feedback makes this site better for everyone!"
+    elif any(word in body_lower for word in ['bug', 'broken', 'error', 'not working']):
+        return f"Thank you so much for reporting this! I really appreciate you taking the time to help improve the blog. The Church teaches us to pursue truth in all things [{ccc_ref[0]}]({ccc_ref[1]}). I will investigate this issue and work on a fix. Your feedback makes this site better for everyone!"
 
-    # Feature suggestion
-    elif any(word in body_lower for word in ['suggest', 'feature', 'add', 'would be nice', 'idea']):
-        return f"Thank you for this wonderful suggestion! I love hearing ideas from readers like you. This is definitely something I will consider implementing. Your input helps shape the direction of this blog. Would you be interested in helping me think through how this could work?"
+    elif any(word in body_lower for word in ['suggest', 'feature', 'add', 'idea']):
+        return f"Thank you for this wonderful suggestion! I love hearing ideas from readers like you. The Catechism speaks of the "communion of charisms" where each person contributes their gifts [{ccc_ref[0]}]({ccc_ref[1]}). This is definitely something I will consider implementing. Would you be interested in helping me think through how this could work?"
 
-    # Question
-    elif any(word in body_lower for word in ['question', 'how', 'why', 'what', 'can you']):
-        return f"Thank you for your thoughtful question! I appreciate you reaching out. Let me look into this and get back to you with a helpful answer. In the meantime, if you have any other questions, feel free to ask. Your curiosity enriches our community!"
+    elif any(word in body_lower for word in ['question', 'how', 'why', 'what']):
+        return f"Thank you for your thoughtful question! I appreciate you reaching out. As the Catechism says, "The desire for God is written in the human heart" [{ccc_ref[0]}]({ccc_ref[1]}). Let me look into this and get back to you with a helpful answer. Your curiosity enriches our community!"
 
-    # Content correction
-    elif any(word in body_lower for word in ['correction', 'typo', 'mistake', 'wrong']):
-        return f"Thank you for catching this! I really appreciate your careful reading and willingness to help improve the content. I will review and correct this as soon as possible. Your attention to detail helps maintain the quality of this blog. God bless you!"
-
-    # Default warm response
     else:
-        responses = [
-            f"Thank you for opening this issue! Your feedback is invaluable to me. I will review this carefully and respond soon. Every reader's voice matters here. Please feel free to add any additional details that might help.",
-            f"I appreciate you taking the time to share this with me! Comments and issues like yours make this blog truly communal. I will look into this and get back to you. How has your day been?",
-            f"Thank you for engaging with the blog and sharing your thoughts! Your contribution helps this community grow. I will review this issue and respond thoughtfully. What else is on your mind today?",
-        ]
-        return random.choice(responses)
+        return f"Thank you for opening this issue! Your feedback is invaluable to me. The Catechism reminds us that "The desire for God is written in the human heart" [{ccc_ref[0]}]({ccc_ref[1]}). I will review this carefully and respond soon. Every reader's voice matters here. Please feel free to add any additional details that might help."
 
 def fetch_issues():
-    """Fetch GitHub Issues"""
     url = f'https://api.github.com/repos/{REPO}/issues'
     params = {'state': 'open', 'per_page': 20}
 
@@ -175,7 +236,6 @@ def fetch_issues():
         return []
 
 def fetch_issue_comments(issue_number):
-    """Fetch comments from an issue"""
     url = f'https://api.github.com/repos/{REPO}/issues/{issue_number}/comments'
 
     try:
@@ -187,7 +247,6 @@ def fetch_issue_comments(issue_number):
         return []
 
 def post_reply(issue_number, reply_body):
-    """Post a reply to a GitHub Issue"""
     url = f'https://api.github.com/repos/{REPO}/issues/{issue_number}/comments'
     data = {'body': reply_body}
 
@@ -201,7 +260,6 @@ def post_reply(issue_number, reply_body):
         return False
 
 def add_label(issue_number, label_name):
-    """Add a label to an issue"""
     url = f'https://api.github.com/repos/{REPO}/issues/{issue_number}/labels'
     data = [label_name]
 
@@ -214,35 +272,20 @@ def add_label(issue_number, label_name):
         return False
 
 def should_reply_to_issue(issue, comments):
-    """Determine if bot should reply - reply to ALL issues"""
-    # Don't reply to own issues
     if issue.get('user', {}).get('login') == 'hansen1015':
         return False
-
-    # Skip pull requests (they come through issues API)
     if 'pull_request' in issue:
         return False
-
-    # Skip if already replied in this session (check comments)
-    for comment in comments:
-        if comment.get('user', {}).get('login') == 'hansen1015':
-            # Already replied, but check if new comments since then
-            pass
-
-    # Reply to everything else!
     return True
 
 def engage_with_issues():
-    """Main function to engage with ALL reader issues using AI"""
     print(f"Starting AI-powered issues engagement at {datetime.now()}")
 
     if not GITHUB_TOKEN:
         print("ERROR: GITHUB_TOKEN not set")
         return
 
-    # Load memory
     memory = load_memory()
-
     issues = fetch_issues()
 
     if not issues:
@@ -251,7 +294,7 @@ def engage_with_issues():
 
     replies_posted = 0
 
-    for issue in issues[:20]:  # Check last 20 issues
+    for issue in issues[:20]:
         issue_number = issue.get('number')
         issue_title = issue.get('title', '')
         issue_body = issue.get('body', '')
@@ -260,22 +303,15 @@ def engage_with_issues():
         comments = fetch_issue_comments(issue_number)
 
         if should_reply_to_issue(issue, comments):
-            # Generate AI response
             reply = generate_ai_response(issue_title, issue_body, issue_labels, memory)
-
-            # Rate limiting delay
             time.sleep(2)
 
             if post_reply(issue_number, reply):
                 replies_posted += 1
                 print(f"AI replied to issue {issue_number}: {issue_title}")
-
-                # Add community label
                 add_label(issue_number, 'community')
 
-    # Save updated memory
     save_memory(memory)
-
     print(f"AI Engagement complete. Posted {replies_posted} replies.")
     return replies_posted
 
