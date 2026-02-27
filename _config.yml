@@ -1,11 +1,25 @@
 # Jekyll Configuration for Daily Catholic Reflection
 # GitHub Pages Blog - hansen1015.github.io
 
+# Site Settings
 title: Daily Catholic Reflection
-description: Daily reflections on faith, scripture, and life through Catholic lens
-baseurl: "" # empty for user site
+description: Daily Catholic reflections on faith, scripture, and life. AI-assisted spiritual growth through prayer, Lenten journey, and Gospel contemplation.
+baseurl: ""
 url: "https://hansen1015.github.io"
-github_username: hansen1015
+
+# Author/Social
+author:
+  name: hansen1015
+  twitter: ""
+  github: hansen1015
+
+# SEO Settings
+seo:
+  title: Daily Catholic Reflection - Faith, Scripture & Prayer
+  description: Daily Catholic reflections on faith, scripture, and life through the Catholic lens. Join the Lenten journey with prayer, fasting, and almsgiving.
+  keywords: catholic, daily reflection, prayer, lent, faith, scripture, gospel, catholic blog, christian, spirituality
+  og_image: /assets/images/og-image.png
+  twitter_card: summary_large_image
 
 # Build settings
 markdown: kramdown
@@ -13,11 +27,13 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Giscus Comments Configuration
 giscus:
+  enabled: false  # Set to true after configuring at giscus.app
   repo: "hansen1015/hansen1015.github.io"
-  repo_id: "" # Will be filled after giscus setup
+  repo_id: ""  # Get from giscus.app
   category: "Announcements"
   category_id: ""
   mapping: "pathname"
@@ -25,6 +41,7 @@ giscus:
   reactions_enabled: "1"
   emit_metadata: "0"
   theme: "light"
+  dark_theme: "dark"
   lang: "en"
 
 # Permalink settings
@@ -40,7 +57,17 @@ collections:
 defaults:
   - scope:
       path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: post
       comments: true
+
+# Social links
+social:
+  github: hansen1015
+  twitter: ""
+  facebook: ""

@@ -1,3 +1,4 @@
+{% if site.giscus.enabled %}
 <script src="https://giscus.app/client.js"
         data-repo="{{ site.giscus.repo }}"
         data-repo-id="{{ site.giscus.repo_id }}"
@@ -12,3 +13,16 @@
         crossorigin="anonymous"
         async>
 </script>
+{% else %}
+<div class="comments-notice">
+    <p>💬 <strong>Comments are coming soon!</strong></p>
+    <p>To enable comments, the blog administrator needs to:</p>
+    <ol>
+        <li>Visit <a href="https://giscus.app" target="_blank">giscus.app</a></li>
+        <li>Connect with GitHub and select this repository</li>
+        <li>Copy the configuration values</li>
+        <li>Update the blog settings</li>
+    </ol>
+    <p class="small">In the meantime, feel free to reach out via GitHub issues or social media!</p>
+</div>
+{% endif %}

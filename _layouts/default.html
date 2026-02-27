@@ -6,19 +6,75 @@
     <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- SEO Meta Tags -->
     <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <meta name="description" content="{{ site.description }}">
-    <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+    <meta name="title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="keywords" content="{{ site.seo.keywords }}">
+    <meta name="author" content="{{ site.author.name }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta property="og:image" content="{{ site.seo.og_image | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="{{ site.seo.twitter_card }}">
+    <meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="twitter:image" content="{{ site.seo.og_image | prepend: site.baseurl | prepend: site.url }}">
+    <meta name="twitter:creator" content="@{{ site.author.twitter }}">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "{% if page.url == '/' %}WebSite{% else %}BlogPosting{% endif %}",
+        "name": "{{ site.title }}",
+        "description": "{{ site.description }}",
+        "url": "{{ site.url }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "datePublished": "{{ site.time | date: '%Y-%m-%d' }}",
+        "inLanguage": "en-US"
+    }
+    </script>
+
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | relative_url }}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://giscus.app">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-                <a href="{{ "/" | relative_url }}" class="logo">✝️ {{ site.title }}</a>
+                <a href="{{ '/' | relative_url }}" class="logo">✝️ {{ site.title }}</a>
                 <div class="links">
-                    <a href="{{ "/" | relative_url }}">Home</a>
-                    <a href="{{ "/about/" | relative_url }}">About</a>
+                    <a href="{{ '/' | relative_url }}">Home</a>
+                    <a href="{{ '/about/' | relative_url }}">About</a>
+                    <a href="{{ '/feed.xml' | relative_url }}" title="RSS Feed">RSS</a>
                 </div>
             </nav>
         </div>
