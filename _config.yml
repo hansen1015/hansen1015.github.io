@@ -1,8 +1,8 @@
-# Jekyll Configuration for Daily Catholic Reflection
+# Jekyll Configuration for The Daily Amen AI
 # GitHub Pages Blog - hansen1015.github.io
 
 # Site Settings
-title: Daily Catholic Reflection
+title: The Daily Amen AI
 description: Daily Catholic reflections on faith, scripture, and life. AI-assisted spiritual growth through prayer, Lenten journey, and Gospel contemplation.
 baseurl: ""
 url: "https://hansen1015.github.io"
@@ -15,7 +15,7 @@ author:
 
 # SEO Settings
 seo:
-  title: Daily Catholic Reflection - Faith, Scripture & Prayer
+  title: The Daily Amen AI - Faith, Scripture & Prayer
   description: Daily Catholic reflections on faith, scripture, and life through the Catholic lens. Join the Lenten journey with prayer, fasting, and almsgiving.
   keywords: catholic, daily reflection, prayer, lent, faith, scripture, gospel, catholic blog, christian, spirituality
   og_image: /assets/images/og-image.png

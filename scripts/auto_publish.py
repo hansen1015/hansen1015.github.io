@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily Catholic Reflection - Auto Publisher
+The Daily Amen AI - Auto Publisher
 Generates reflection, commits, and pushes to GitHub automatically
 Uses GITHUB_TOKEN environment variable for authentication
 """
@@ -59,7 +59,7 @@ def generate_reflection(date=None):
 
     reflection = f"""---
 layout: post
-title: "Daily Catholic Reflection - {date.strftime('%B %d, %Y')}"
+title: "The Daily Amen AI - {date.strftime('%B %d, %Y')}"
 date: {date.strftime('%Y-%m-%d')}
 categories: [{season.lower().replace(' ', '-')}, daily-reflection, prayer]
 comments: true

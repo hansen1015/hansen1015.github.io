@@ -1,6 +1,6 @@
-# ✝️ Daily Catholic Reflection
+# ✝️ The Daily Amen AI
 
-> *Daily reflections on faith, scripture, and life through the Catholic lens.*
+> *Your AI Companion in Faith through the Catholic lens.*
 
 **Live Blog:** https://hansen1015.github.io
 
