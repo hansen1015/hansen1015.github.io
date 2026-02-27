@@ -297,3 +297,42 @@ article table tbody tr {
         font-weight: 700;
     }
 }
+
+/* CRITICAL FIX: Force visible text in all table cells - override everything */
+article table tbody tr td,
+article table tbody tr th,
+main table tbody tr td,
+main table tbody tr th {
+    color: #0f172a !important;
+    font-weight: 500 !important;
+}
+
+/* Ensure cards have proper background */
+article table tbody tr,
+main table tbody tr {
+    background-color: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Dark mode: force dark cards with bright visible text */
+@media (prefers-color-scheme: dark) {
+    article table tbody tr,
+    main table tbody tr,
+    table tbody tr {
+        background-color: #0f172a !important;
+        border-color: #334155 !important;
+    }
+    article table tbody tr td,
+    article table tbody tr th,
+    main table tbody tr td,
+    main table tbody tr th,
+    table tbody tr td,
+    table tbody tr th {
+        color: #f1f5f9 !important;
+    }
+    article table tbody tr td::before,
+    main table tbody tr td::before {
+        color: #60a5fa !important;
+        font-weight: 700 !important;
+    }
+}
