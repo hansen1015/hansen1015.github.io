@@ -5,13 +5,18 @@ permalink: /search/
 ---
 
 <article>
-    <h1>🔍 Search The Daily Amen AI</h1>
-    <p>Find reflections, prayers, and Catholic content.</p>
+    <header class="search-header">
+        <h1>🔍 Search</h1>
+        <p class="search-subtitle">Find reflections, prayers, and Catholic content.</p>
+    </header>
 
     <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search reflections, saints, prayers..." autofocus>
-        <div id="search-results" class="search-results"></div>
+        <div class="search-input-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Search reflections, saints, prayers..." autofocus>
+        </div>
         <div id="search-stats" class="search-stats"></div>
+        <div id="search-results" class="search-results"></div>
     </div>
 </article>
 
@@ -19,7 +24,6 @@ permalink: /search/
 <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
 
 <script>
-// Lunr.js Search Implementation
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
@@ -27,13 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let index = null;
     let documents = [];
 
-    // Load search index
     fetch('{{ "/search.json" | relative_url }}')
         .then(response => response.json())
         .then(data => {
             documents = data;
-
-            // Build Lunr index
             index = lunr(function() {
                 this.ref('id');
                 this.field('title', { boost: 10 });
@@ -41,72 +42,59 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.field('excerpt', { boost: 5 });
                 this.field('categories', { boost: 3 });
                 this.field('tags', { boost: 2 });
-
                 for (let i = 0; i < data.length; i++) {
                     this.add(data[i]);
                 }
             });
-
-            searchStats.innerHTML = `📚 Indexed ${data.length} reflections`;
+            searchStats.innerHTML = `<span class="stats-badge">📚 ${data.length} reflections indexed</span>`;
         })
         .catch(error => {
             console.error('Error loading search index:', error);
-            searchStats.innerHTML = '❌ Error loading search';
+            searchStats.innerHTML = '<span class="error-badge">❌ Error loading search</span>';
         });
 
-    // Search function
     searchInput.addEventListener('input', function() {
         const query = this.value.trim();
-
         if (query.length < 2) {
             searchResults.innerHTML = '';
-            searchStats.innerHTML = query.length > 0 ? 'Type at least 2 characters...' : '';
+            searchStats.innerHTML = query.length > 0 ? '<span class="stats-badge">Type at least 2 characters...</span>' : '';
             return;
         }
-
         if (!index) {
-            searchStats.innerHTML = 'Loading search index...';
+            searchStats.innerHTML = '<span class="stats-badge">Loading...</span>';
             return;
         }
-
         const results = index.search(query);
-
         if (results.length === 0) {
-            searchResults.innerHTML = '<p class="no-results">No reflections found. Try different keywords.</p>';
-            searchStats.innerHTML = `🔍 "${query}" - No results`;
+            searchResults.innerHTML = '<div class="no-results"><span class="no-results-icon">🕊️</span><p>No reflections found. Try different keywords.</p></div>';
+            searchStats.innerHTML = `<span class="stats-badge">🔍 "${query}" - No results</span>`;
             return;
         }
-
-        // Display results
         let html = '';
         results.forEach(result => {
             const doc = documents.find(d => d.id === result.ref);
             if (doc) {
-                const date = new Date(doc.date).toLocaleDateString('en-US', {
-                    year: 'numeric', month: 'long', day: 'numeric'
-                });
-                const excerpt = doc.excerpt.length > 150 
-                    ? doc.excerpt.substring(0, 150) + '...' 
-                    : doc.excerpt;
-
+                const date = new Date(doc.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+                const excerpt = doc.excerpt.length > 140 ? doc.excerpt.substring(0, 140) + '...' : doc.excerpt;
                 html += `
-                <article class="search-result-item">
-                    <h3><a href="${doc.url}">${highlightMatch(doc.title, query)}</a></h3>
-                    <div class="search-meta">
-                        <span class="search-date">📅 ${date}</span>
-                        ${doc.categories.length > 0 ? `<span class="search-categories">${doc.categories.map(c => `<span class="category">${c}</span>`).join('')}</span>` : ''}
+                <article class="search-result-card">
+                    <div class="result-content">
+                        <h3><a href="${doc.url}">${highlightMatch(doc.title, query)}</a></h3>
+                        <div class="result-meta">
+                            <span class="result-date">📅 ${date}</span>
+                            ${doc.categories.length > 0 ? `<div class="result-categories">${doc.categories.map(c => `<span class="category-badge">${c}</span>`).join('')}</div>` : ''}
+                        </div>
+                        <p class="result-excerpt">${highlightMatch(excerpt, query)}</p>
                     </div>
-                    <p class="search-excerpt">${highlightMatch(excerpt, query)}</p>
+                    <span class="result-arrow">→</span>
                 </article>
                 `;
             }
         });
-
         searchResults.innerHTML = html;
-        searchStats.innerHTML = `🔍 "${query}" - ${results.length} result${results.length !== 1 ? 's' : ''}`;
+        searchStats.innerHTML = `<span class="stats-badge success">🔍 "${query}" - ${results.length} result${results.length !== 1 ? 's' : ''}</span>`;
     });
 
-    // Highlight matching text
     function highlightMatch(text, query) {
         const regex = new RegExp(`(${query})`, 'gi');
         return text.replace(regex, '<mark>$1</mark>');
@@ -115,144 +103,308 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
-.search-container {
-    margin-top: 2rem;
+/* Search Header */
+.search-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.search-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary, #667eea);
+    margin-bottom: 0.5rem;
+}
+
+.search-subtitle {
+    color: var(--muted-color, #718096);
+    font-size: 1rem;
+}
+
+/* Search Input */
+.search-input-wrapper {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.6;
 }
 
 #search-input {
     width: 100%;
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    background: var(--background-color, #fff);
-    color: var(--color, #1a202c);
-    margin-bottom: 1rem;
+    padding: 1rem 1rem 1rem 3rem;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #1a202c;
+    transition: all 0.2s ease;
 }
 
 #search-input:focus {
     outline: none;
-    border-color: var(--primary-hover, #5a67d8);
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    border-color: var(--primary, #667eea);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
+#search-input::placeholder {
+    color: #a0aec0;
+}
+
+/* Stats Badge */
+.search-stats {
+    margin-bottom: 1.5rem;
+}
+
+.stats-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #f7fafc;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+.stats-badge.success {
+    background: #ebf8ff;
+    color: #2b6cb0;
+}
+
+.error-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background: #fed7d7;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #c53030;
+}
+
+/* Result Cards */
 .search-results {
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
 }
 
-.search-result-item {
-    background: var(--card-background-color, #fff);
-    border: 1px solid var(--muted-border, #e2e8f0);
-    border-radius: 8px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
+.search-result-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
-.search-result-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+.search-result-card:hover {
+    border-color: var(--primary, #667eea);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+    transform: translateY(-1px);
 }
 
-.search-result-item h3 {
-    margin: 0 0 0.5rem 0;
+.result-content {
+    flex: 1;
+    min-width: 0;
 }
 
-.search-result-item h3 a {
-    color: var(--primary, #667eea);
+.result-content h3 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.result-content h3 a {
+    color: #1a202c;
     text-decoration: none;
 }
 
-.search-result-item h3 a:hover {
-    text-decoration: underline;
+.result-content h3 a:hover {
+    color: var(--primary, #667eea);
 }
 
-.search-meta {
+.result-meta {
     display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    color: var(--muted-color, #718096);
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    color: #718096;
 }
 
-.search-date {
+.result-date {
     display: flex;
     align-items: center;
     gap: 0.25rem;
 }
 
-.search-categories {
+.result-categories {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
 }
 
-.search-categories .category {
-    background: var(--primary, #667eea);
-    color: white;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 0.8rem;
+.category-badge {
+    background: var(--primary-light, #ebf4ff);
+    color: var(--primary, #667eea);
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
-.search-excerpt {
-    color: var(--muted-color, #718096);
-    line-height: 1.6;
+.result-excerpt {
+    color: #718096;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.result-arrow {
+    color: #cbd5e0;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: all 0.2s ease;
+}
+
+.search-result-card:hover .result-arrow {
+    color: var(--primary, #667eea);
+    transform: translateX(3px);
+}
+
+/* No Results */
+.no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #718096;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.no-results p {
     margin: 0;
 }
 
-.search-stats {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: var(--muted-color, #718096);
-}
-
-.no-results {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted-color, #718096);
-}
-
+/* Highlight */
 mark {
     background: var(--primary-light, #ebf4ff);
     color: var(--primary, #667eea);
-    padding: 0.1rem 0.3rem;
+    padding: 0.05rem 0.25rem;
     border-radius: 3px;
+    font-weight: 500;
 }
 
-/* Dark mode adjustments */
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
-    #search-input {
-        background: #1a202c;
-        border-color: #4a5568;
+    .search-subtitle {
+        color: #a0aec0;
     }
 
-    .search-result-item {
+    #search-input {
+        background: #1f2937;
+        border-color: #374151;
+        color: #f9fafb;
+    }
+
+    #search-input:focus {
+        border-color: var(--primary, #7f9cf5);
+        box-shadow: 0 0 0 4px rgba(127, 156, 245, 0.15);
+    }
+
+    #search-input::placeholder {
+        color: #6b7280;
+    }
+
+    .stats-badge {
+        background: #374151;
+        color: #d1d5db;
+    }
+
+    .stats-badge.success {
+        background: #1e3a5f;
+        color: #93c5fd;
+    }
+
+    .error-badge {
+        background: #450a0a;
+        color: #fca5a5;
+    }
+
+    .search-result-card {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    .search-result-card:hover {
+        border-color: var(--primary, #7f9cf5);
+        box-shadow: 0 4px 12px rgba(127, 156, 245, 0.15);
+    }
+
+    .result-content h3 a {
+        color: #f9fafb;
+    }
+
+    .result-content h3 a:hover {
+        color: var(--primary, #7f9cf5);
+    }
+
+    .result-meta,
+    .result-excerpt {
+        color: #9ca3af;
+    }
+
+    .category-badge {
         background: #2d3748;
-        border-color: #4a5568;
+        color: #93c5fd;
     }
 
     mark {
-        background: #4a5568;
-        color: #90cdf4;
+        background: #2d3748;
+        color: #93c5fd;
     }
 }
 
-/* Mobile optimization */
+/* Mobile */
 @media (max-width: 768px) {
+    .search-header h1 {
+        font-size: 1.5rem;
+    }
+
     #search-input {
+        padding: 0.875rem 0.875rem 0.875rem 2.75rem;
         font-size: 1rem;
+    }
+
+    .search-result-card {
         padding: 0.875rem 1rem;
     }
 
-    .search-result-item {
-        padding: 1rem;
+    .result-meta {
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
     }
 
-    .search-meta {
-        flex-direction: column;
-        gap: 0.5rem;
+    .result-arrow {
+        display: none;
     }
 }
 </style>
