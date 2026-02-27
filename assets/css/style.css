@@ -374,3 +374,48 @@ body .home table tbody tr {
         font-weight: 700 !important;
     }
 }
+
+
+/* Desktop font size reduction - keeps mobile fonts as-is */
+@media (min-width: 769px) {
+    /* Reduce base font size */
+    html {
+        font-size: 14px !important;
+    }
+
+    /* Reduce heading sizes */
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+    h3 { font-size: 1.3rem !important; }
+    h4 { font-size: 1.1rem !important; }
+    h5 { font-size: 1rem !important; }
+    h6 { font-size: 0.9rem !important; }
+
+    /* Reduce paragraph and general text */
+    p, li, td, th, span, div {
+        font-size: 0.95rem !important;
+    }
+
+    /* Reduce navigation links */
+    nav a, .logo {
+        font-size: 0.9rem !important;
+    }
+
+    /* Reduce email subscription form */
+    .email-subscription h4 {
+        font-size: 1.1em !important;
+    }
+    .email-subscription p {
+        font-size: 0.9em !important;
+    }
+
+    /* Reduce post titles */
+    .post-title {
+        font-size: 1.1rem !important;
+    }
+
+    /* Reduce category badges */
+    .category {
+        font-size: 0.75em !important;
+    }
+}
