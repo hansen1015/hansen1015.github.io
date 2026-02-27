@@ -179,3 +179,121 @@
         width: 100%;
     }
 }
+
+/* Fix table visibility in Pico.css */
+article table {
+    --table-border-color: var(--muted-border);
+    --table-row-stripe-background: transparent;
+}
+
+article table td,
+article table th {
+    color: var(--color) !important;
+    padding: 0.75rem 0.5rem;
+}
+
+/* Dark mode table fixes */
+@media (prefers-color-scheme: dark) {
+    article table tr {
+        background: #2d3748 !important;
+        border-color: #4a5568 !important;
+    }
+    article table td,
+    article table th {
+        color: #e2e8f0 !important;
+        border-bottom-color: #4a5568 !important;
+    }
+    article table td::before {
+        color: #90cdf4 !important;
+        font-weight: 600;
+    }
+}
+
+/* Mobile card-style tables for Pico.css */
+@media (max-width: 768px) {
+    article table thead {
+        display: none;
+    }
+    article table tbody tr {
+        display: block;
+        background: var(--card-background-color, #ffffff);
+        border: 1px solid var(--muted-border, #e2e8f0);
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    article table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+        border: none;
+        text-align: right;
+    }
+    article table tbody td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--primary, #667eea);
+        text-align: left;
+        padding-right: 1rem;
+    }
+}
+
+/* CRITICAL: Force visible text in cards/tables */
+article table td,
+article table th,
+article table tr td * {
+    color: #1a202c !important;
+}
+
+/* Ensure card backgrounds are visible */
+article table tr {
+    background: #ffffff !important;
+}
+
+/* Dark mode: dark cards with clearly visible light text */
+@media (prefers-color-scheme: dark) {
+    article table tr {
+        background: #1a202c !important;
+    }
+    article table td,
+    article table th,
+    article table tr td * {
+        color: #f7fafc !important;
+    }
+    article table td::before {
+        color: #90cdf4 !important;
+        font-weight: 700;
+    }
+}
+
+/* CRITICAL FIX: Force high-contrast text in all table cards */
+article table td,
+article table th,
+article table tbody tr td * {
+    color: #1a202c !important;
+    font-weight: 500;
+}
+
+/* Ensure card backgrounds are solid white in light mode */
+article table tbody tr {
+    background: #ffffff !important;
+    border-color: #e2e8f0 !important;
+}
+
+/* Dark mode: solid dark cards with bright white text */
+@media (prefers-color-scheme: dark) {
+    article table tbody tr {
+        background: #1a202c !important;
+        border-color: #4a5568 !important;
+    }
+    article table td,
+    article table th,
+    article table tbody tr td * {
+        color: #ffffff !important;
+    }
+    article table td::before {
+        color: #90cdf4 !important;
+        font-weight: 700;
+    }
+}
