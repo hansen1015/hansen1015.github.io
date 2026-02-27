@@ -12,6 +12,9 @@
     <meta name="keywords" content="{{ page.categories | join: ', ' }}, catholic, daily reflection, prayer">
     <meta name="author" content="{{ site.author.name }}">
     <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+    
+    <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
@@ -92,9 +95,10 @@
     </main>
     <footer>
         <div class="container">
-            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
-            <p class="ai-disclosure-small">⚠️ Content generated with AI assistance</p>
-
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. Your AI Companion in Faith.</p>
+            <p class="ai-disclosure-small">⚠️ <em>Content generated with AI assistance. Discern in prayer and light of Church teaching.</em></p>
+            <p class="support-link">💝 <a href="https://ko-fi.com/hansen1015" target="_blank" rel="noopener">Support this ministry on Ko-fi</a></p>
+    
             <!-- Email Subscription Form -->
             <div class="email-subscription">
                 <h4>📧 Subscribe to The Daily Amen AI</h4>
@@ -105,7 +109,7 @@
                 </form>
                 <p class="subscription-note">🔒 We respect your privacy. Unsubscribe anytime.</p>
             </div>
-        </div>
+	    </div>
     </footer>
 </body>
 </html>
