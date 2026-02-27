@@ -650,3 +650,8 @@ img {
         padding: 0;
     }
 }
+
+/* Ko-fi Support Link */
+.support-link { margin-top: 10px; }
+.support-link a { color: #ff5f5f; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+.support-link a:hover { color: #ff7b7b; text-decoration: underline; }
