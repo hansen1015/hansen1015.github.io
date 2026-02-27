@@ -17,10 +17,14 @@ import json
 from datetime import datetime, timedelta
 import time
 
-# Configuration
-GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
-REPO = 'hansen1015/hansen1015.github.io'
-GISCUS_CATEGORY = 'General'
+# Load configuration
+config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+with open(config_path, 'r') as f:
+    config = json.load(f)
+
+GITHUB_TOKEN = config.get('GITHUB_TOKEN', '')
+REPO = config.get('REPO', 'hansen1015/hansen1015.github.io')
+GISCUS_CATEGORY = config.get('GISCUS_CATEGORY', 'General')
 
 # Catholic topics to engage with
 CATHOLIC_TOPICS = [
@@ -80,7 +84,6 @@ def generate_reply(comment_body, discussion_title):
     - Acknowledge the commenter's perspective
     """
 
-    # Simple reply templates based on comment content
     comment_lower = comment_body.lower()
 
     # Prayer requests
