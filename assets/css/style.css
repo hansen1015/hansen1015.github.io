@@ -1,3 +1,85 @@
+/* AI Disclosure Banner - Prominent Top Notice */
+.ai-banner {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 1rem 0;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.ai-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.ai-banner-icon {
+    font-size: 1.5rem;
+    animation: pulse 2s infinite;
+}
+
+.ai-banner-text {
+    font-weight: 500;
+}
+
+.ai-banner-text strong {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Dark mode support for banner */
+@media (prefers-color-scheme: dark) {
+    .ai-banner {
+        background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+    }
+}
+
+/* Mobile optimization */
+@media (max-width: 600px) {
+    .ai-banner {
+        padding: 0.75rem 0;
+        font-size: 0.85rem;
+    }
+
+    .ai-banner-content {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .ai-banner-icon {
+        font-size: 1.25rem;
+    }
+}
+
+/* Enhanced AI disclosure in footer */
+.ai-disclosure-small {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border-left: 3px solid #667eea;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .ai-disclosure-small {
+        background: rgba(102, 126, 234, 0.2);
+    }
+}
+
+
 /* CSS Variables for theming */
 :root {
     /* Light mode (default) */
