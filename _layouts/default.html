@@ -6,6 +6,10 @@
     <meta name="theme-color" content="#667eea">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <!-- RSS Feed Discovery -->
+    <link rel="alternate" type="application/rss+xml" title="The Daily Amen AI" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="alternate" type="application/atom+xml" title="The Daily Amen AI" href="{{ '/atom.xml' | prepend: site.baseurl | prepend: site.url }}">
+
     <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
     <link rel="apple-touch-icon" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
 
@@ -99,6 +103,17 @@
             <p class="ai-disclosure-small">⚠️ <em>Content generated with AI assistance. Discern in prayer and light of Church teaching.</em></p>
             <p class="support-link">💝 <a href="https://ko-fi.com/hansen1015" target="_blank" rel="noopener">Support this ministry on Ko-fi</a></p>
         </div>
-    </footer>
+    
+            <!-- Email Subscription Widget (Follow.it) -->
+            <div class="email-subscription">
+                <h4>📧 Subscribe to The Daily Amen AI</h4>
+                <p>Receive daily Catholic reflections in your inbox.</p>
+                <div id="followit-widget-placeholder">
+                    <p class="placeholder-text">🔔 Subscription form coming soon via Follow.it</p>
+                    <p class="placeholder-hint">Enter your email to get daily reflections at 6 AM SGT</p>
+                </div>
+                <p class="subscription-note">🔒 We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+</footer>
 </body>
 </html>
