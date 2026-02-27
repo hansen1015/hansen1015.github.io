@@ -3,6 +3,8 @@
 The Daily Amen AI - Auto Publisher
 Generates reflection, commits, and pushes to GitHub automatically
 Uses GITHUB_TOKEN environment variable for authentication
+
+SEO: Includes outbound links to authoritative Catholic sources
 """
 
 import os
@@ -20,7 +22,7 @@ if not GITHUB_TOKEN:
     sys.exit(1)
 
 def generate_reflection(date=None):
-    """Generate a daily Catholic reflection"""
+    """Generate a daily Catholic reflection with source citations"""
     if date is None:
         date = datetime.now()
 
@@ -56,6 +58,18 @@ def generate_reflection(date=None):
         6: 'Resurrection Joy and Sabbath Rest'
     }
     weekday_theme = weekday_themes.get(weekday, 'Daily Grace')
+
+    # Scripture references for the day (rotating)
+    scripture_refs = {
+        0: ('Psalm 51:10', 'https://www.vatican.va/archive/bible/psalms/documents/bible-psalms_en.html#51'),
+        1: ('Matthew 5:14-16', 'https://www.vatican.va/archive/bible/gospels/documents/bible-matthew_en.html#5'),
+        2: ('Philippians 4:6-7', 'https://www.vatican.va/archive/bible/epistles/documents/bible-philippians_en.html#4'),
+        3: ('1 Thessalonians 5:16-18', 'https://www.vatican.va/archive/bible/epistles/documents/bible-1thessalonians_en.html#5'),
+        4: ('Luke 9:23', 'https://www.vatican.va/archive/bible/gospels/documents/bible-luke_en.html#9'),
+        5: ('John 14:27', 'https://www.vatican.va/archive/bible/gospels/documents/bible-john_en.html#14'),
+        6: ('Psalm 118:24', 'https://www.vatican.va/archive/bible/psalms/documents/bible-psalms_en.html#118')
+    }
+    main_verse, verse_url = scripture_refs.get(weekday, ('Psalm 119:105', 'https://www.vatican.va/archive/bible/psalms/documents/bible-psalms_en.html#119'))
 
     reflection = f"""---
 layout: post
@@ -93,14 +107,19 @@ As we begin this day, let us pause and invite the Lord into our hearts.
 
 ## Scripture Focus
 
-> *"Create in me a clean heart, O God, and renew a right spirit within me."*  
+> *"Create in me a clean heart, O God, and renew a right spirit within me."*
 > **— Psalm 51:10**
+
+📖 **Read today''s full readings:**
+- [USCCB Daily Readings](https://bible.usccb.org/bible/readings/)
+- [Vatican Daily Mass](https://www.vatican.va/content/vatican/en/gospels.html)
+- [Bible Gateway](https://www.biblegateway.com/)
 
 ---
 
 ## Practical Application
 
-| Area | Today's Focus |
+| Area | Today''s Focus |
 |------|---------------|
 | **Prayer** | Spend 5 minutes in silent prayer |
 | **Fasting** | Identify one distraction to surrender |
@@ -116,6 +135,19 @@ As we begin this day, let us pause and invite the Lord into our hearts.
 *Thank You for this new day. In this season of {season}, help me to embrace prayer, fasting, and almsgiving with an open heart.*
 
 *Through Christ our Lord, Amen.*
+
+---
+
+## 📚 Scripture Sources
+
+| Reference | Source |
+|-----------|--------|
+| Old Testament | [Vatican Bible](https://www.vatican.va/archive/bible/index_en.html) |
+| Psalms | [USCCB Psalms](https://bible.usccb.org/bible/psalms) |
+| Gospels | [New American Bible](https://bible.usccb.org/bible/matthew/1) |
+| Daily Readings | [USCCB Lectionary](https://bible.usccb.org/bible/readings/) |
+
+*These links help you read the full context of today''s Scriptures and deepen your understanding.*
 
 ---
 
