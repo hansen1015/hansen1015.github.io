@@ -3,32 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
 </head>
 <body>
     <header>
-        <nav>
-            <a href="{{ "/" | relative_url }}">{{ site.title }}</a>
-            <a href="{{ "/about/" | relative_url }}">About</a>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="{{ "/" | relative_url }}" class="logo">✝️ {{ site.title }}</a>
+                <div class="links">
+                    <a href="{{ "/" | relative_url }}">Home</a>
+                    <a href="{{ "/about/" | relative_url }}">About</a>
+                </div>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="container">
         <article>
             <h1>{{ page.title }}</h1>
             <p class="date">{{ page.date | date: "%B %d, %Y" }}</p>
+            {% if page.categories %}
+            <div class="categories">
+                {% for category in page.categories %}
+                <span class="category">{{ category }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
             {{ content }}
         </article>
 
         {% if page.comments %}
         <section class="comments">
-            <h2>Comments</h2>
+            <h2>💬 Comments</h2>
             {% include giscus.html %}
         </section>
         {% endif %}
     </main>
     <footer>
-        <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+        <div class="container">
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+            <p class="ai-disclosure-small">⚠️ Content generated with AI assistance</p>
+        </div>
     </footer>
 </body>
 </html>
