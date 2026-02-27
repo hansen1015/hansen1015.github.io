@@ -3,10 +3,9 @@
 Comment Engagement Bot for Daily Catholic Reflection Blog
 
 This script:
-1. Fetches comments from GitHub Discussions (Giscus backend)
-2. Analyzes comments for Catholic discussion topics
-3. Generates engaging, thoughtful replies
-4. Posts replies back to continue the conversation
+1. Fetches ALL comments from GitHub Discussions (Giscus backend)
+2. Generates engaging, thoughtful replies for EVERY comment
+3. Posts replies back to continue the conversation
 
 Runs every 4 hours to stay engaged with readers.
 """
@@ -16,6 +15,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 import time
+import random
 
 # Load configuration
 config_path = os.path.join(os.path.dirname(__file__), 'config.json')
@@ -25,16 +25,6 @@ with open(config_path, 'r') as f:
 GITHUB_TOKEN = config.get('GITHUB_TOKEN', '')
 REPO = config.get('REPO', 'hansen1015/hansen1015.github.io')
 GISCUS_CATEGORY = config.get('GISCUS_CATEGORY', 'General')
-
-# Catholic topics to engage with
-CATHOLIC_TOPICS = [
-    'prayer', 'scripture', 'gospel', 'saint', 'mass', 'eucharist',
-    'lent', 'advent', 'rosary', 'confession', 'faith', 'grace',
-    'mercy', 'salvation', 'bible', 'homily', 'sermon', 'virtue',
-    'sin', 'redemption', 'cross', 'resurrection', 'mary', 'trinity',
-    'sacrament', 'baptism', 'confirmation', 'charity', 'fasting',
-    'almsgiving', 'penance', 'devotion', 'meditation', 'spiritual'
-]
 
 def get_github_headers():
     return {
@@ -67,21 +57,15 @@ def fetch_comments(discussion_id):
         print(f"Error fetching comments: {e}")
         return []
 
-def is_catholic_topic(text):
-    """Check if text contains Catholic discussion topics"""
-    text_lower = text.lower()
-    return any(topic in text_lower for topic in CATHOLIC_TOPICS)
-
 def generate_reply(comment_body, discussion_title):
     """
-    Generate an engaging Catholic reply to a comment.
+    Generate an engaging reply to ANY comment.
 
     Guidelines:
     - Warm and welcoming tone
-    - Reference Scripture or Church teaching when relevant
     - Encourage further discussion
-    - Stay within orthodox Catholic teaching
     - Acknowledge the commenter's perspective
+    - Make everyone feel heard and valued
     """
 
     comment_lower = comment_body.lower()
@@ -128,15 +112,29 @@ def generate_reply(comment_body, discussion_title):
             f"Your testimony is a beautiful witness to God's work in your life! Stories like yours inspire others on their journey. Have you considered how this experience might help others facing similar situations?",
         ]
 
-    # General engagement
-    else:
+    # Thanks/Appreciation
+    elif any(word in comment_lower for word in ['thank', 'appreciate', 'helpful', 'blessing']):
         replies = [
-            f"Thank you for your thoughtful comment! Your perspective enriches our community discussion. I would love to hear more about your thoughts on this topic. What other aspects of Catholic faith would you like to explore together?",
-            f"I appreciate you taking the time to share your thoughts! Comments like yours make this reflection space truly communal. How has your prayer life been recently? I would love to continue this conversation.",
-            f"Thank you for engaging with this reflection! Your comment shows deep consideration of the topic. Would you be interested in discussing how this applies to daily Catholic living? I read every comment and learn from this community.",
+            f"Thank you so much for your kind words! Comments like yours encourage me to continue this daily reflection ministry. Your support means a lot to this community. How has your spiritual journey been lately?",
+            f"I'm truly grateful for your feedback! Knowing these reflections resonate with readers like you is the greatest blessing. Please feel free to share any topics you'd like to see explored in future posts.",
         ]
 
-    import random
+    # Suggestions/Feedback
+    elif any(word in comment_lower for word in ['suggest', 'idea', 'feature', 'improve']):
+        replies = [
+            f"Thank you for this wonderful suggestion! Reader input helps shape this blog into a true community space. I'll definitely consider this for future improvements. Is there anything else you'd like to see added?",
+            f"What a great idea! I love when readers take an active role in building this community. Let me think about how to implement this. Would you be interested in contributing to this feature?",
+        ]
+
+    # General engagement - for ANY other comment
+    else:
+        replies = [
+            f"Thank you for your thoughtful comment! Your perspective enriches our community discussion. I would love to hear more about your thoughts on this topic. What other aspects would you like to explore together?",
+            f"I appreciate you taking the time to share your thoughts! Comments like yours make this reflection space truly communal. How has your day been? I would love to continue this conversation.",
+            f"Thank you for engaging with this reflection! Your comment shows deep consideration of the topic. Every reader's voice matters here. Would you like to discuss how this applies to daily living?",
+            f"Your comment is valued! I read every single comment and learn from this community. Thank you for being part of The Daily Amen AI family. What's on your mind today?",
+        ]
+
     return random.choice(replies)
 
 def post_reply(discussion_id, reply_body):
@@ -154,17 +152,21 @@ def post_reply(discussion_id, reply_body):
         return False
 
 def should_reply_to_comment(comment):
-    """Determine if bot should reply to this comment"""
+    """Determine if bot should reply to this comment - REPLY TO ALL"""
     # Don't reply to own comments
     if comment.get('author', {}).get('login') == 'hansen1015':
         return False
 
-    # Check if comment is Catholic-related
+    # Don't reply if already replied by bot (check last comment)
     body = comment.get('body', '')
-    return is_catholic_topic(body) and len(body) > 20
+    if len(body) < 2:  # Skip empty/spam
+        return False
+
+    # REPLY TO EVERYTHING - no topic filtering!
+    return True
 
 def engage_with_comments():
-    """Main function to engage with reader comments"""
+    """Main function to engage with ALL reader comments"""
     print(f"Starting comment engagement at {datetime.now()}")
 
     if not GITHUB_TOKEN:
@@ -179,13 +181,13 @@ def engage_with_comments():
 
     replies_posted = 0
 
-    for discussion in discussions[:5]:  # Check last 5 discussions
+    for discussion in discussions[:10]:  # Check last 10 discussions
         discussion_id = discussion.get('number')
         discussion_title = discussion.get('title', '')
 
         comments = fetch_comments(discussion_id)
 
-        for comment in comments[-3:]:  # Check last 3 comments per discussion
+        for comment in comments[-5:]:  # Check last 5 comments per discussion
             if should_reply_to_comment(comment):
                 comment_body = comment.get('body', '')
                 reply = generate_reply(comment_body, discussion_title)

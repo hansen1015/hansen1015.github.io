@@ -3,13 +3,12 @@
 Issues Monitoring Bot for Daily Catholic Reflection Blog
 
 This script:
-1. Fetches new GitHub Issues
-2. Categorizes them (bug, prayer, suggestion, question, critical)
-3. Auto-responds to acknowledge and thank readers
-4. Logs suggestions for future content
-5. Flags critical issues for human review
+1. Fetches ALL open GitHub Issues
+2. Responds to EVERY issue with engaging, personalized replies
+3. Adds appropriate labels
+4. Logs all interactions
 
-Runs every 6 hours to stay engaged with readers.
+Runs every 6 hours to stay engaged with all readers.
 """
 
 import os
@@ -17,6 +16,7 @@ import requests
 import json
 from datetime import datetime, timedelta
 import time
+import random
 
 # Load configuration
 config_path = os.path.join(os.path.dirname(__file__), 'config.json')
@@ -26,31 +26,18 @@ with open(config_path, 'r') as f:
 GITHUB_TOKEN = config.get('GITHUB_TOKEN', '')
 REPO = config.get('REPO', 'hansen1015/hansen1015.github.io')
 
-# Issue category keywords
-CATEGORIES = {
-    'prayer': ['pray', 'prayer', 'intention', 'intercede', 'rosary', 'novena'],
-    'suggestion': ['suggest', 'topic', 'saint', 'feast', 'season', 'advent', 'lent', 'idea'],
-    'bug_technical': ['bug', 'error', 'broken', 'not working', 'layout', 'mobile', 'css', 'link'],
-    'bug_content': ['wrong', 'incorrect', 'theology', 'doctrine', 'scripture', 'verse', 'date'],
-    'question': ['question', 'ask', 'how', 'why', 'what', 'explain'],
-    'collaboration': ['partner', 'collaborate', 'sponsor', 'advertise']
-}
-
-# Critical issues that need human review
-CRITICAL_KEYWORDS = ['abuse', 'heresy', 'scandal', 'legal', 'cease', 'demand', 'threat']
-
 def get_github_headers():
     return {
         'Authorization': f'token {GITHUB_TOKEN}',
         'Accept': 'application/vnd.github.v3+json'
     }
 
-def fetch_issues(state='open', since_hours=24):
-    """Fetch GitHub Issues, optionally filtered by time"""
+def fetch_issues(state='open', since_hours=48):
+    """Fetch ALL open GitHub Issues"""
     url = f'https://api.github.com/repos/{REPO}/issues'
     params = {
         'state': state,
-        'per_page': 20,
+        'per_page': 30,
         'since': (datetime.utcnow() - timedelta(hours=since_hours)).isoformat() + 'Z'
     }
 
@@ -64,30 +51,18 @@ def fetch_issues(state='open', since_hours=24):
         print(f"Error fetching issues: {e}")
         return []
 
-def categorize_issue(title, body):
-    """Categorize issue based on title and body content"""
-    text = (title + ' ' + body).lower()
+def generate_response(issue_title, issue_body):
+    """
+    Generate an engaging response to ANY issue.
+    Every person who reaches out deserves a warm, thoughtful reply.
+    """
 
-    # Check for critical first
-    if any(kw in text for kw in CRITICAL_KEYWORDS):
-        return 'critical'
+    title_lower = (issue_title + ' ' + issue_body).lower()
 
-    # Check each category
-    scores = {}
-    for category, keywords in CATEGORIES.items():
-        scores[category] = sum(1 for kw in keywords if kw in text)
-
-    if not any(scores.values()):
-        return 'general'
-
-    # Return highest scoring category
-    return max(scores, key=scores.get)
-
-def generate_response(category, issue_title, issue_body):
-    """Generate an appropriate auto-response based on issue category"""
-
-    responses = {
-        'prayer': f"""🙏 **Thank you for sharing your prayer intention**.
+    # Prayer requests
+    if any(word in title_lower for word in ['pray', 'prayer', 'intention', 'intercede', 'rosary', 'novena']):
+        replies = [
+            f"""🙏 **Thank you for sharing your prayer intention**.
 
 I have received your prayer request and will keep this intention in my prayers. This blog is committed to supporting our community's spiritual life through daily reflection and prayer.
 
@@ -96,9 +71,13 @@ I have received your prayer request and will keep this intention in my prayers. 
 *"For where two or three are gathered together in my name, there am I in the midst of them."* - Matthew 18:20
 
 ---
-*This is an automated response. A human may also review your request.*""",
+*This is an automated response from The Daily Amen AI. Every prayer request is read and remembered.*""",
+        ]
 
-        'suggestion': f"""💡 **Thank you for your wonderful suggestion**!
+    # Suggestions
+    elif any(word in title_lower for word in ['suggest', 'topic', 'saint', 'feast', 'season', 'advent', 'lent', 'idea', 'feature']):
+        replies = [
+            f"""💡 **Thank you for your wonderful suggestion**!
 
 Your idea for "{issue_title[:50]}..." has been received and logged for future content planning. Reader suggestions like yours help shape this blog's direction.
 
@@ -111,8 +90,12 @@ Your idea for "{issue_title[:50]}..." has been received and logged for future co
 
 ---
 *This is an automated response. Our team reviews all suggestions.*""",
+        ]
 
-        'bug_technical': f"""🐛 **Thank you for reporting this technical issue**.
+    # Bug reports
+    elif any(word in title_lower for word in ['bug', 'error', 'broken', 'not working', 'layout', 'mobile', 'css', 'link', 'wrong', 'incorrect']):
+        replies = [
+            f"""🐛 **Thank you for reporting this issue**.
 
 I've received your report about "{issue_title[:50]}..." and will investigate this promptly.
 
@@ -125,25 +108,12 @@ If this is urgent, please reply with additional details (browser, device, screen
 
 ---
 *This is an automated response. Technical issues are reviewed by our team.*""",
+        ]
 
-        'bug_content': f"""⚠️ **Thank you for bringing this content concern to our attention**.
-
-You've raised an important point about "{issue_title[:50]}...". Content accuracy, especially regarding theology and scripture, is taken very seriously.
-
-**This issue has been flagged for human review**.
-
-Our team will:
-1. Review the content against Church teaching
-2. Consult relevant sources (Scripture, Catechism, Church documents)
-3. Make corrections if needed
-4. Update this issue with our findings
-
-*"The truth will set you free."* - John 8:32
-
----
-*⚠️ This issue requires human review. A team member will respond soon.*""",
-
-        'question': f"""📧 **Thank you for your question**!
+    # Questions
+    elif any(word in title_lower for word in ['question', 'ask', 'how', 'why', 'what', 'explain', 'help']):
+        replies = [
+            f"""📧 **Thank you for your question**!
 
 You've asked about "{issue_title[:50]}...". We appreciate your engagement with the content.
 
@@ -152,14 +122,16 @@ You've asked about "{issue_title[:50]}...". We appreciate your engagement with t
 - Theological questions: May take longer for careful discernment
 - You'll receive a notification when we respond
 
-If your question is urgent, please consider contacting your parish priest or spiritual director.
-
 *"Ask, and it will be given to you; seek, and you will find."* - Matthew 7:7
 
 ---
 *This is an automated response. We read every question and respond personally.*""",
+        ]
 
-        'collaboration': f"""🤝 **Thank you for your interest in collaboration**!
+    # Collaboration/Partnership
+    elif any(word in title_lower for word in ['partner', 'collaborate', 'sponsor', 'advertise']):
+        replies = [
+            f"""🤝 **Thank you for your interest in collaboration**!
 
 Your message about "{issue_title[:50]}..." has been received.
 
@@ -172,20 +144,12 @@ You can expect:
 
 ---
 *⚠️ This issue requires human review. Thank you for your patience.*""",
+        ]
 
-        'critical': f"""⚠️ **This issue has been flagged for immediate human review**.
-
-Your message has been received and escalated to the blog administrator.
-
-**Please expect**:
-- Priority review within 24 hours
-- Direct response from administrator
-- Appropriate action as needed
-
----
-*⚠️ CRITICAL: This issue requires immediate human attention.*""",
-
-        'general': f"""🙏 **Thank you for reaching out**!
+    # General/Any other issue - ENGAGE WITH EVERYONE
+    else:
+        replies = [
+            f"""🙏 **Thank you for reaching out**!
 
 Your message "{issue_title[:50]}..." has been received. We appreciate you taking the time to engage with this blog.
 
@@ -197,10 +161,36 @@ Your message "{issue_title[:50]}..." has been received. We appreciate you taking
 *"Rejoice with those who rejoice, weep with those who weep."* - Romans 12:15
 
 ---
-*This is an automated response. Every message is read personally.*"""
-    }
+*This is an automated response. Every message is read personally.*""",
+            f"""✨ **Hello and thank you for your message**!
 
-    return responses.get(category, responses['general'])
+We've received your issue "{issue_title[:40]}..." and want you to know your voice matters to this community.
+
+**Our commitment to you**:
+- Every issue is read by a real person
+- We respond to all inquiries within 48 hours
+- Your feedback helps us grow and improve
+
+*"Carry each other's burdens, and in this way you will fulfill the law of Christ."* - Galatians 6:2
+
+---
+*The Daily Amen AI Community Team*""",
+            f"""🌟 **Thank you for contacting The Daily Amen AI**!
+
+Your issue has been received and we're grateful you took the time to reach out. Whether you have a question, suggestion, or just want to share your thoughts - we're listening!
+
+**Next steps**:
+1. ✅ Issue received and logged
+2. 📝 Review within 24-48 hours
+3. 💬 Personal response coming your way
+
+*"Let your speech always be gracious, seasoned with salt."* - Colossians 4:6
+
+---
+*Every reader matters. Thank you for being part of our community!*""",
+        ]
+
+    return random.choice(replies)
 
 def post_comment(issue_number, comment_body):
     """Post a comment/reply to a GitHub Issue"""
@@ -230,41 +220,36 @@ def add_label(issue_number, label):
         print(f"Error adding label: {e}")
         return False
 
-def log_suggestion(issue, category):
-    """Log suggestions to a tracking file"""
-    log_path = os.path.join(os.path.dirname(__file__), 'suggestions_log.json')
+def log_interaction(issue, responded=True):
+    """Log all interactions to a tracking file"""
+    log_path = os.path.join(os.path.dirname(__file__), 'issues_log.json')
 
     # Load existing log
     if os.path.exists(log_path):
         with open(log_path, 'r') as f:
             log = json.load(f)
     else:
-        log = {'suggestions': [], 'prayer_requests': [], 'bugs': []}
+        log = {'interactions': []}
 
     entry = {
         'issue_number': issue.get('number'),
         'title': issue.get('title'),
         'author': issue.get('user', {}).get('login'),
-        'category': category,
         'created_at': issue.get('created_at'),
+        'responded': responded,
         'logged_at': datetime.utcnow().isoformat()
     }
 
-    if category == 'suggestion':
-        log['suggestions'].append(entry)
-    elif category == 'prayer':
-        log['prayer_requests'].append(entry)
-    elif category.startswith('bug'):
-        log['bugs'].append(entry)
+    log['interactions'].append(entry)
 
     # Save log
     with open(log_path, 'w') as f:
         json.dump(log, f, indent=2)
 
-    print(f"Logged {category} to suggestions_log.json")
+    print(f"Logged interaction for issue #{issue.get('number')}")
 
 def should_respond(issue):
-    """Determine if bot should respond to this issue"""
+    """Determine if bot should respond - RESPOND TO ALL OPEN ISSUES"""
     # Don't respond to issues already closed
     if issue.get('state') == 'closed':
         return False
@@ -273,7 +258,7 @@ def should_respond(issue):
     if issue.get('user', {}).get('login') == 'hansen1015':
         return False
 
-    # Don't respond if we already commented
+    # Check if we already responded with automated response
     comments_url = issue.get('comments_url', '')
     if comments_url:
         try:
@@ -287,24 +272,25 @@ def should_respond(issue):
         except:
             pass
 
+    # RESPOND TO EVERYTHING ELSE!
     return True
 
 def monitor_issues():
-    """Main function to monitor and respond to issues"""
+    """Main function to monitor and respond to ALL issues"""
     print(f"Starting issues monitoring at {datetime.utcnow()}")
 
     if not GITHUB_TOKEN:
         print("ERROR: GITHUB_TOKEN not set")
         return
 
-    # Fetch issues from last 24 hours (adjust as needed)
-    issues = fetch_issues(state='open', since_hours=24)
+    # Fetch issues from last 48 hours (wider window for engagement)
+    issues = fetch_issues(state='open', since_hours=48)
 
     if not issues:
         print("No new issues found")
         return
 
-    stats = {'responded': 0, 'flagged': 0, 'logged': 0}
+    stats = {'responded': 0, 'logged': 0, 'skipped': 0}
 
     for issue in issues:
         issue_number = issue.get('number')
@@ -312,46 +298,26 @@ def monitor_issues():
         issue_body = issue.get('body', '')
 
         if not should_respond(issue):
-            print(f"Skipping issue #{issue_number} (already responded)")
+            print(f"Skipping issue #{issue_number} (already responded or closed)")
+            stats['skipped'] += 1
             continue
 
-        # Categorize
-        category = categorize_issue(issue_title, issue_body)
-        print(f"Issue #{issue_number}: {issue_title[:40]}... -> {category}")
-
-        # Generate and post response
-        response = generate_response(category, issue_title, issue_body)
+        # Generate and post response - ENGAGE WITH EVERYONE
+        response = generate_response(issue_title, issue_body)
         if post_comment(issue_number, response):
             stats['responded'] += 1
 
-        # Add appropriate label
-        label_map = {
-            'prayer': 'prayer-request',
-            'suggestion': 'enhancement',
-            'bug_technical': 'bug',
-            'bug_content': 'content-review',
-            'question': 'question',
-            'collaboration': 'collaboration',
-            'critical': 'urgent',
-            'general': 'general'
-        }
-        add_label(issue_number, label_map.get(category, 'general'))
+        # Add friendly label
+        add_label(issue_number, 'community')
 
-        # Log suggestions and prayer requests
-        if category in ['suggestion', 'prayer', 'bug_technical', 'bug_content']:
-            log_suggestion(issue, category)
-            stats['logged'] += 1
-
-        # Flag critical issues (already labeled as urgent)
-        if category == 'critical':
-            stats['flagged'] += 1
-            print(f"⚠️ CRITICAL: Issue #{issue_number} flagged for immediate review")
+        # Log all interactions
+        log_interaction(issue, responded=True)
+        stats['logged'] += 1
 
         # Rate limiting delay
         time.sleep(2)
 
-    print(f"
-Monitoring complete. Responded: {stats['responded']}, Logged: {stats['logged']}, Flagged: {stats['flagged']}")
+    print(f"Monitoring complete. Responded: {stats['responded']}, Logged: {stats['logged']}, Skipped: {stats['skipped']}")
     return stats
 
 if __name__ == '__main__':
