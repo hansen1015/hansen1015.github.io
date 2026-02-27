@@ -336,3 +336,41 @@ main table tbody tr {
         font-weight: 700 !important;
     }
 }
+
+/* MAXIMUM SPECIFICITY FIX: Force visible text in all content tables */
+body main article table tbody tr td,
+body main article table tbody tr th,
+body .home table tbody tr td,
+body .home table tbody tr th {
+    color: #111827 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+/* Force card backgrounds */
+body main article table tbody tr,
+body .home table tbody tr {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+}
+
+/* Dark mode: dark cards with bright white text */
+@media (prefers-color-scheme: dark) {
+    body main article table tbody tr,
+    body .home table tbody tr,
+    body article table tbody tr {
+        background-color: #1f2937 !important;
+        border-color: #374151 !important;
+    }
+    body main article table tbody tr td,
+    body main article table tbody tr th,
+    body article table tbody tr td,
+    body article table tbody tr th {
+        color: #f9fafb !important;
+    }
+    body main article table tbody tr td::before,
+    body article table tbody tr td::before {
+        color: #60a5fa !important;
+        font-weight: 700 !important;
+    }
+}
