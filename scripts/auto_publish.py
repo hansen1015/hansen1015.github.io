@@ -119,7 +119,7 @@ As we begin this day, let us pause and invite the Lord into our hearts.
 
 ---
 
-*This reflection was generated with AI assistance. Always discern in prayer and light of Church tradition.*
+*This reflection was generated with AI assistance. Published daily at 6:00 AM SGT (Singapore Time). Readers from around the world are welcome to join in prayer and reflection. Always discern in prayer and light of Church tradition.*
 
 *"Test everything; hold fast to what is good." - 1 Thessalonians 5:21*
 """
