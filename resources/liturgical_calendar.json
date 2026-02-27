@@ -1,0 +1,119 @@
+{
+  "description": "Catholic Liturgical Calendar - Seasons and Key Dates",
+  "seasons": {
+    "advent": {
+      "description": "Season of preparation for Christmas",
+      "color": "purple",
+      "themes": [
+        "hope",
+        "preparation",
+        "waiting",
+        "prophecy"
+      ],
+      "duration": "4 Sundays before Christmas",
+      "key_readings": [
+        "Isaiah",
+        "John the Baptist",
+        "Annunciation"
+      ]
+    },
+    "christmas": {
+      "description": "Celebration of the Nativity of our Lord",
+      "color": "white/gold",
+      "themes": [
+        "joy",
+        "incarnation",
+        "light",
+        "gift"
+      ],
+      "duration": "December 25 - Baptism of the Lord",
+      "key_readings": [
+        "Luke 2",
+        "John 1",
+        "Matthew 1-2"
+      ]
+    },
+    "ordinary_time_1": {
+      "description": "Time after Christmas before Lent",
+      "color": "green",
+      "themes": [
+        "growth",
+        "discipleship",
+        "teaching"
+      ],
+      "duration": "After Baptism of Lord until Ash Wednesday",
+      "key_readings": [
+        "Synoptic Gospels",
+        "Epistles"
+      ]
+    },
+    "lent": {
+      "description": "Season of penance and preparation for Easter",
+      "color": "purple",
+      "themes": [
+        "repentance",
+        "fasting",
+        "prayer",
+        "almsgiving",
+        "conversion"
+      ],
+      "duration": "40 days (not counting Sundays)",
+      "key_readings": [
+        "Passion narratives",
+        "Prodigal Son",
+        "Woman at the Well"
+      ]
+    },
+    "easter": {
+      "description": "Celebration of the Resurrection",
+      "color": "white/gold",
+      "themes": [
+        "resurrection",
+        "new life",
+        "victory",
+        "joy"
+      ],
+      "duration": "50 days until Pentecost",
+      "key_readings": [
+        "Acts of Apostles",
+        "John 20-21",
+        "1 Peter"
+      ]
+    },
+    "ordinary_time_2": {
+      "description": "Time after Easter until Advent",
+      "color": "green",
+      "themes": [
+        "growth",
+        "mission",
+        "kingdom of God"
+      ],
+      "duration": "After Pentecost until Advent",
+      "key_readings": [
+        "Gospel of the Year",
+        "Epistles"
+      ]
+    }
+  },
+  "2026_dates": {
+    "ash_wednesday": "2026-02-18",
+    "easter_sunday": "2026-04-05",
+    "ascension": "2026-05-14",
+    "pentecost": "2026-05-24",
+    "trinity_sunday": "2026-05-31",
+    "corpus_christi": "2026-06-04",
+    "sacred_heart": "2026-06-12",
+    "all_saints": "2026-11-01",
+    "all_souls": "2026-11-02",
+    "christmas": "2026-12-25"
+  },
+  "weekday_themes": {
+    "monday": "New beginnings, work offered to God",
+    "tuesday": "Perseverance in faith",
+    "wednesday": "Midweek reflection, Christ's suffering",
+    "thursday": "Eucharist, priesthood",
+    "friday": "Penance, sacrifice, Crucifixion",
+    "saturday": "Mary, rest, preparation for Sunday",
+    "sunday": "Resurrection, Lord's Day, community"
+  }
+}

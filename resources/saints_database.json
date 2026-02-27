@@ -1,0 +1,257 @@
+{
+  "description": "Catholic Saints - Feast Days and Brief Biographies",
+  "saints": {
+    "01-01": {
+      "name": "Mary, Mother of God",
+      "feast": "Solemnity",
+      "patron_of": "Motherhood, World Peace",
+      "brief": "The Blessed Virgin Mary, honored as the Mother of God and model of faith."
+    },
+    "01-17": {
+      "name": "St. Anthony the Great",
+      "feast": "Memorial",
+      "patron_of": "Animals, Lost Items",
+      "brief": "Desert father who founded monasticism in Egypt."
+    },
+    "01-20": {
+      "name": "St. Sebastian",
+      "feast": "Memorial",
+      "patron_of": "Athletes, Soldiers",
+      "brief": "Roman martyr who encouraged Christians during persecution."
+    },
+    "01-28": {
+      "name": "St. Thomas Aquinas",
+      "feast": "Memorial",
+      "patron_of": "Students, Scholars",
+      "brief": "Doctor of the Church, wrote Summa Theologica."
+    },
+    "02-02": {
+      "name": "Presentation of the Lord",
+      "feast": "Feast",
+      "patron_of": "",
+      "brief": "Jesus presented in the Temple, meeting Simeon and Anna."
+    },
+    "02-11": {
+      "name": "Our Lady of Lourdes",
+      "feast": "Memorial",
+      "patron_of": "Sick, Healing",
+      "brief": "Mary appeared to St. Bernadette in Lourdes, France."
+    },
+    "02-14": {
+      "name": "Sts. Cyril and Methodius",
+      "feast": "Memorial",
+      "patron_of": "Europe, Missionaries",
+      "brief": "Brothers who brought Christianity to the Slavic peoples."
+    },
+    "02-22": {
+      "name": "Chair of St. Peter",
+      "feast": "Feast",
+      "patron_of": "Papacy",
+      "brief": "Celebrating the authority of Peter as first Pope."
+    },
+    "03-17": {
+      "name": "St. Patrick",
+      "feast": "Memorial",
+      "patron_of": "Ireland",
+      "brief": "Missionary who converted Ireland to Christianity."
+    },
+    "03-19": {
+      "name": "St. Joseph",
+      "feast": "Solemnity",
+      "patron_of": "Workers, Fathers, Universal Church",
+      "brief": "Husband of Mary, foster father of Jesus, model of obedience."
+    },
+    "03-25": {
+      "name": "Annunciation",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Angel Gabriel announces to Mary she will bear the Son of God."
+    },
+    "04-23": {
+      "name": "St. George",
+      "feast": "Memorial",
+      "patron_of": "England, Soldiers",
+      "brief": "Martyr known for his courage and faith."
+    },
+    "04-25": {
+      "name": "St. Mark",
+      "feast": "Feast",
+      "patron_of": "Writers, Venice",
+      "brief": "Evangelist, author of the second Gospel."
+    },
+    "05-01": {
+      "name": "St. Joseph the Worker",
+      "feast": "Memorial",
+      "patron_of": "Workers",
+      "brief": "Celebrating the dignity of human work."
+    },
+    "05-13": {
+      "name": "Our Lady of Fatima",
+      "feast": "Memorial",
+      "patron_of": "Peace",
+      "brief": "Mary appeared to three shepherd children in Fatima, Portugal."
+    },
+    "05-31": {
+      "name": "Visitation",
+      "feast": "Feast",
+      "patron_of": "",
+      "brief": "Mary visits her cousin Elizabeth, who recognizes her as Mother of God."
+    },
+    "06-13": {
+      "name": "St. Anthony of Padua",
+      "feast": "Memorial",
+      "patron_of": "Lost Items, Poor",
+      "brief": "Franciscan preacher, Doctor of the Church."
+    },
+    "06-24": {
+      "name": "Nativity of St. John the Baptist",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Birth of the forerunner of Christ."
+    },
+    "06-29": {
+      "name": "Sts. Peter and Paul",
+      "feast": "Solemnity",
+      "patron_of": "Rome, Unity",
+      "brief": "Apostles who founded the Church in Rome."
+    },
+    "07-22": {
+      "name": "St. Mary Magdalene",
+      "feast": "Feast",
+      "patron_of": "Converts",
+      "brief": "First witness to the Resurrection, apostle to the apostles."
+    },
+    "07-25": {
+      "name": "St. James",
+      "feast": "Feast",
+      "patron_of": "Spain, Pilgrims",
+      "brief": "Apostle, brother of John, first apostle martyred."
+    },
+    "08-06": {
+      "name": "Transfiguration",
+      "feast": "Feast",
+      "patron_of": "",
+      "brief": "Jesus revealed his divine glory to Peter, James, and John."
+    },
+    "08-10": {
+      "name": "St. Lawrence",
+      "feast": "Feast",
+      "patron_of": "Deacons, Cooks",
+      "brief": "Deacon martyred in Rome, known for his charity."
+    },
+    "08-15": {
+      "name": "Assumption of Mary",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Mary taken body and soul into heavenly glory."
+    },
+    "08-28": {
+      "name": "St. Augustine",
+      "feast": "Memorial",
+      "patron_of": "Theologians",
+      "brief": "Doctor of the Church, author of Confessions."
+    },
+    "09-08": {
+      "name": "Nativity of Mary",
+      "feast": "Feast",
+      "patron_of": "",
+      "brief": "Birth of the Blessed Virgin Mary."
+    },
+    "09-14": {
+      "name": "Exaltation of the Holy Cross",
+      "feast": "Feast",
+      "patron_of": "",
+      "brief": "Celebrating the Cross as instrument of salvation."
+    },
+    "09-29": {
+      "name": "Sts. Michael, Gabriel, Raphael",
+      "feast": "Feast",
+      "patron_of": "Archangels",
+      "brief": "The three archangels named in Scripture."
+    },
+    "10-01": {
+      "name": "St. Therese of Lisieux",
+      "feast": "Memorial",
+      "patron_of": "Missions, France",
+      "brief": "Doctor of the Church, known for the Little Way."
+    },
+    "10-04": {
+      "name": "St. Francis of Assisi",
+      "feast": "Memorial",
+      "patron_of": "Animals, Ecology, Italy",
+      "brief": "Founder of Franciscans, lover of poverty and creation."
+    },
+    "10-15": {
+      "name": "St. Teresa of Avila",
+      "feast": "Memorial",
+      "patron_of": "Spain, Writers",
+      "brief": "Doctor of the Church, Carmelite reformer."
+    },
+    "11-01": {
+      "name": "All Saints",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Honoring all saints, known and unknown."
+    },
+    "11-02": {
+      "name": "All Souls",
+      "feast": "Commemoration",
+      "patron_of": "",
+      "brief": "Praying for the faithful departed."
+    },
+    "11-22": {
+      "name": "St. Cecilia",
+      "feast": "Memorial",
+      "patron_of": "Musicians",
+      "brief": "Martyr, patron of sacred music."
+    },
+    "12-03": {
+      "name": "St. Francis Xavier",
+      "feast": "Memorial",
+      "patron_of": "Missions",
+      "brief": "Jesuit missionary to Asia, co-founder of Society of Jesus."
+    },
+    "12-06": {
+      "name": "St. Nicholas",
+      "feast": "Memorial",
+      "patron_of": "Children, Sailors",
+      "brief": "Bishop known for secret gift-giving."
+    },
+    "12-08": {
+      "name": "Immaculate Conception",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Mary conceived without original sin."
+    },
+    "12-12": {
+      "name": "Our Lady of Guadalupe",
+      "feast": "Memorial",
+      "patron_of": "Americas",
+      "brief": "Mary appeared to Juan Diego in Mexico."
+    },
+    "12-25": {
+      "name": "Christmas",
+      "feast": "Solemnity",
+      "patron_of": "",
+      "brief": "Birth of our Lord Jesus Christ."
+    },
+    "12-26": {
+      "name": "St. Stephen",
+      "feast": "Feast",
+      "patron_of": "Deacons, Martyrs",
+      "brief": "First Christian martyr."
+    },
+    "12-27": {
+      "name": "St. John",
+      "feast": "Feast",
+      "patron_of": "Writers, Theologians",
+      "brief": "Apostle and Evangelist, beloved disciple."
+    },
+    "12-28": {
+      "name": "Holy Innocents",
+      "feast": "Feast",
+      "patron_of": "Children",
+      "brief": "Children killed by Herod seeking Jesus."
+    }
+  }
+}
