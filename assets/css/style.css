@@ -796,3 +796,90 @@ main table tbody td {
         color: #90cdf4;
     }
 }
+
+/* Comprehensive Mobile Fixes */
+@media (max-width: 768px) {
+    /* Reduce container padding */
+    .container {
+        padding: 0 12px !important;
+    }
+    
+    /* Fix main content padding */
+    main {
+        padding: 10px 0 !important;
+    }
+    
+    /* Reduce article padding */
+    article {
+        padding: 12px !important;
+    }
+    
+    /* Fix heading sizes */
+    h1 { font-size: 1.5em; margin: 0.8em 0; }
+    h2 { font-size: 1.3em; margin: 0.7em 0; }
+    h3 { font-size: 1.1em; margin: 0.6em 0; }
+    
+    /* Fix paragraph spacing */
+    p {
+        margin: 0.5em 0;
+        line-height: 1.5;
+    }
+    
+    /* Fix section spacing */
+    section {
+        margin: 1em 0;
+    }
+    
+    /* Card table fixes */
+    main table tbody tr {
+        padding: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    main table tbody td {
+        padding: 0.4rem 0 !important;
+        font-size: 0.9em;
+    }
+    
+    /* Fix email subscription on mobile */
+    .email-subscription {
+        padding: 15px !important;
+        margin: 15px 0 !important;
+    }
+    
+    .email-subscription h4 {
+        font-size: 1.1em;
+    }
+    
+    /* Fix footer spacing */
+    footer {
+        padding: 15px 0;
+        margin-top: 20px;
+    }
+    
+    /* Remove extra margins from lists */
+    ul, ol {
+        padding-left: 20px;
+        margin: 0.5em 0;
+    }
+    
+    /* Fix blockquote */
+    blockquote {
+        margin: 1em 0;
+        padding: 10px 15px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 8px !important;
+    }
+    
+    h1 { font-size: 1.3em; }
+    h2 { font-size: 1.2em; }
+    
+    main table tbody td {
+        font-size: 0.85em;
+    }
+}
