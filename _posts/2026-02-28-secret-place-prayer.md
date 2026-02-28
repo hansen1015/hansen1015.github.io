@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Secret Place of Prayer: A Lenten Invitation"
-date: 2026-02-28 06:00:00 +0000
+date: 2026-02-28 06:00:00 +0800
 categories: [Lent, Prayer, Spiritual Growth]
 tags: [Lenten Journey, Prayer Life, Conversion, Forgiveness]
 excerpt: "In the quiet moments of Lent, Christ invites us into the secret place where authentic prayer transforms the heart."
