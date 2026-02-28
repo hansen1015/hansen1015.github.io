@@ -1,0 +1,72 @@
+{
+  "description": "Catholic Liturgical Calendar - Universalis.com Source",
+  "source": "https://universalis.com/atom3day.xml",
+  "source_html": "https://universalis.com/{YYYYMMDD}/mass.htm",
+  "2026_lenten_season": {
+    "ash_wednesday": "2026-02-18",
+    "first_sunday_lent": "2026-02-22",
+    "second_sunday_lent": "2026-03-01",
+    "third_sunday_lent": "2026-03-08",
+    "fourth_sunday_lent": "2026-03-15",
+    "fifth_sunday_lent": "2026-03-22",
+    "palm_sunday": "2026-03-29",
+    "holy_thursday": "2026-04-02",
+    "good_friday": "2026-04-03",
+    "holy_saturday": "2026-04-04",
+    "easter_sunday": "2026-04-05"
+  },
+  "lent_weeks_2026": {
+    "week_1": {
+      "start": "2026-02-22",
+      "end": "2026-02-28",
+      "sunday": "First Sunday of Lent"
+    },
+    "week_2": {
+      "start": "2026-03-01",
+      "end": "2026-03-07",
+      "sunday": "Second Sunday of Lent"
+    },
+    "week_3": {
+      "start": "2026-03-08",
+      "end": "2026-03-14",
+      "sunday": "Third Sunday of Lent"
+    },
+    "week_4": {
+      "start": "2026-03-15",
+      "end": "2026-03-21",
+      "sunday": "Fourth Sunday of Lent (Laetare)"
+    },
+    "week_5": {
+      "start": "2026-03-22",
+      "end": "2026-03-28",
+      "sunday": "Fifth Sunday of Lent"
+    },
+    "holy_week": {
+      "start": "2026-03-29",
+      "end": "2026-04-04",
+      "sunday": "Palm Sunday"
+    }
+  },
+  "current_date_info": {
+    "date": "2026-03-01",
+    "liturgical_day": "Second Sunday of Lent",
+    "saint": "St. David of Wales",
+    "color": "purple",
+    "gospel": "Matthew 17:1-9 (Transfiguration)",
+    "themes": [
+      "Transfiguration",
+      "Listen to Him",
+      "Lenten Journey",
+      "Divine Glory"
+    ]
+  },
+  "weekday_themes": {
+    "monday": "New beginnings, work offered to God",
+    "tuesday": "Perseverance in faith",
+    "wednesday": "Midweek reflection, Christ's suffering",
+    "thursday": "Eucharist, priesthood",
+    "friday": "Penance, sacrifice, Crucifixion",
+    "saturday": "Mary, rest, preparation for Sunday",
+    "sunday": "Resurrection, Lord's Day, community"
+  }
+}
