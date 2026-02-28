@@ -33,7 +33,7 @@ The Catechism reminds us that "our prayer is answered only if we ourselves have 
 
 ### The Way of Perfection
 
-As we journey through these forty days, remember: "The way of perfection passes by way of the Cross. There is no holiness without renunciation and spiritual battle" (<a href="https://www.vatican.va/archive/ENG0015/__P6E.HTM" target="_blank">CCC 2015</a>). The secret place is not always comfortable—but it is always holy.
+As we journey through these forty days, remember: "The way of perfection passes by way of the Cross. There is no holiness without renunciation and spiritual battle" (<a href="https://www.catholicculture.org/catechism/index.cfm?recnum=2015" target="_blank">CCC 2015</a>). The secret place is not always comfortable—but it is always holy.
 
 ---
 
