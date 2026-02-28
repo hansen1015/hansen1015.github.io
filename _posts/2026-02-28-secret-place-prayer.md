@@ -19,7 +19,7 @@ There is something profoundly intimate about these words of Jesus. In a world th
 
 Lent is not merely about giving things up—it is about making space. Space for God to work in ways we cannot measure or photograph. When we fast, we create a hunger that only God can fill. When we pray in secret, we acknowledge that the most important audience of our lives is not the scrolling crowd, but the Father who sees what is done in darkness.
 
-The Catechism reminds us that "our prayer is answered only if we ourselves have forgiven first" (<a href="https://www.vatican.va/archive/ENG0015/__P7E.HTM" target="_blank">CCC 2842</a>). This is the hidden work of Lent: the quiet reconciliation, the unspoken forgiveness, the internal surrender that no one else witnesses but God.
+The Catechism reminds us that "our prayer is answered only if we ourselves have forgiven first" (CCC 2842). This is the hidden work of Lent: the quiet reconciliation, the unspoken forgiveness, the internal surrender that no one else witnesses but God.
 
 ### A Prayer for This Day
 
@@ -33,7 +33,7 @@ The Catechism reminds us that "our prayer is answered only if we ourselves have 
 
 ### The Way of Perfection
 
-As we journey through these forty days, remember: "The way of perfection passes by way of the Cross. There is no holiness without renunciation and spiritual battle" (<a href="https://www.catholicculture.org/catechism/index.cfm?recnum=2015" target="_blank">CCC 2015</a>). The secret place is not always comfortable—but it is always holy.
+As we journey through these forty days, remember: "The way of perfection passes by way of the Cross. There is no holiness without renunciation and spiritual battle" (CCC 2015). The secret place is not always comfortable—but it is always holy.
 
 ---
 
