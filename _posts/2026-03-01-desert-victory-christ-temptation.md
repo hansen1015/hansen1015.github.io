@@ -6,12 +6,12 @@ categories:
   - Daily Reflection
   - Scripture
 layout: post
-meta_description: "First Sunday of Lent reflection on Christ's temptation in the desert, showing us how to overcome temptation through prayer, Scripture, and trust in God."
+meta_description: "Second Sunday of Lent reflection on Christ's temptation in the desert, showing us how to overcome temptation through prayer, Scripture, and trust in God."
 ---
 
 ## 🏜️ The Desert Journey Begins
 
-Today marks the **First Sunday of Lent**, inviting us into the sacred 40-day journey of conversion, prayer, and penance. As we enter this liturgical season, the Church presents us with the Gospel of Christ's temptation in the desert (Matthew 4:1-11) — a profound meditation on how our Lord Himself faced and overcame the enemy's assaults.
+Today marks the **Second Sunday of Lent**, inviting us into the sacred 40-day journey of conversion, prayer, and penance. As we enter this liturgical season, the Church presents us with the Gospel of Christ's temptation in the desert (Matthew 4:1-11) — a profound meditation on how our Lord Himself faced and overcame the enemy's assaults.
 
 ## 📖 Scripture for Meditation
 
