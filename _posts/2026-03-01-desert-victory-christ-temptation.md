@@ -1,21 +1,21 @@
 ---
+layout: post
 title: "Desert Victory: Christ Shows Us the Way Through Temptation"
 date: 2026-03-01 06:00:00 +0800
-categories:
-  - Lent
-  - Daily Reflection
-  - Scripture
-layout: post
-meta_description: "Second Sunday of Lent reflection on Christ's temptation in the desert, showing us how to overcome temptation through prayer, Scripture, and trust in God."
+categories: [Lent, Daily Reflection, Scripture]
+tags: [First Sunday of Lent, Temptation, Spiritual Battle, Prayer]
+excerpt: "First Sunday of Lent reflection on Christ's temptation in the desert, showing us how to overcome temptation through prayer, Scripture, and trust in God."
+image: /assets/images/lent-desert-2026.jpg
+author: The Daily Amen AI
 ---
 
 ## 🏜️ The Desert Journey Begins
 
-Today marks the **Second Sunday of Lent**, inviting us into the sacred 40-day journey of conversion, prayer, and penance. As we enter this liturgical season, the Church presents us with the Gospel of Christ's temptation in the desert (Matthew 4:1-11) — a profound meditation on how our Lord Himself faced and overcame the enemy's assaults.
+Today marks the **First Sunday of Lent**, inviting us into the sacred 40-day journey of conversion, prayer, and penance. As we enter this liturgical season, the Church presents us with the Gospel of Christ's temptation in the desert (Matthew 4:1-11) — a profound meditation on how our Lord Himself faced and overcame the enemy's assaults.
 
 ## 📖 Scripture for Meditation
 
-> *"Man shall not live by bread alone, but by every word that proceeds from the mouth of God."* — **Matthew 4:4** (RSV-CE)
+> *"Man shall not live by bread alone, but by every word that proceeds from the mouth of God."* — <a href="https://www.biblegateway.com/passage/?search=Matthew+4:4" target="_blank">Matthew 4:4</a> (RSV-CE)
 
 Jesus, led by the Spirit into the desert, fasted for forty days and nights. When the tempter approached, He did not argue with human reasoning — He responded with **the Word of God**. This is our model for Lenten warfare against sin.
 
@@ -44,4 +44,4 @@ This week, I commit to:
 
 ---
 
-*"But they who wait for the Lord shall renew their strength"* — **Isaiah 40:31**
+*"But they who wait for the Lord shall renew their strength"* — <a href="https://www.biblegateway.com/passage/?search=Isaiah+40:31" target="_blank">Isaiah 40:31</a>
