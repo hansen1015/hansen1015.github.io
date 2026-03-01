@@ -9,17 +9,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      TZ: Asia/Singapore
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify Gemfile exists
+        run: |
+          echo "Current directory: $(pwd)"
+          echo "Files in directory:"
+          ls -la
+          if [ -f "Gemfile" ]; then
+            echo "✅ Gemfile found!"
+            cat Gemfile
+          else
+            echo "❌ Gemfile NOT found!"
+            exit 1
+          fi
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
           bundler-cache: true
+          working-directory: .
 
       - name: Set timezone
         run: |
@@ -28,6 +42,8 @@ jobs:
 
       - name: Install dependencies
         run: bundle install
+        env:
+          TZ: Asia/Singapore
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --trace
