@@ -1,4 +1,4 @@
-name: Build Jekyll Site with SGT Timezone
+name: Deploy Jekyll site to Pages
 
 on:
   push:
@@ -6,26 +6,37 @@ on:
       - master
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Singapore
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Verify Gemfile exists
+      - name: Debug - List files
         run: |
-          echo "Current directory: $(pwd)"
-          echo "Files in directory:"
+          echo "=== Current Directory ==="
+          pwd
+          echo "=== All Files ==="
           ls -la
+          echo "=== Gemfile Check ==="
           if [ -f "Gemfile" ]; then
-            echo "✅ Gemfile found!"
+            echo "✅ Gemfile FOUND"
             cat Gemfile
           else
-            echo "❌ Gemfile NOT found!"
-            exit 1
+            echo "❌ Gemfile NOT FOUND"
+            find . -name "Gemfile" 2>/dev/null || true
           fi
 
       - name: Setup Ruby
@@ -33,26 +44,27 @@ jobs:
         with:
           ruby-version: '3.1'
           bundler-cache: true
-          working-directory: .
+          cache-version: 0
 
-      - name: Set timezone
-        run: |
-          sudo timedatectl set-timezone Asia/Singapore
-          echo "TZ=Asia/Singapore" >> $GITHUB_ENV
-
-      - name: Install dependencies
-        run: bundle install
-        env:
-          TZ: Asia/Singapore
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --trace
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
-          TZ: Asia/Singapore
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+        id: deployment
+        uses: actions/deploy-pages@v4
