@@ -1,0 +1,632 @@
+{
+  "description": "Catechism of the Catholic Church - Key Paragraphs for Daily Reflections",
+  "source": "Catechism of the Catholic Church",
+  "topics": {
+    "prayer": [
+      {
+        "ccc": "CCC 2559",
+        "text": "Prayer is the raising of one's mind and heart to God or the requesting of good things from God.",
+        "link": null,
+        "vatican_page": "__P8E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2559",
+        "display": "CCC 2559",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2607",
+        "text": "Jesus prays and teaches us to pray. His prayer shows us how to pray to our Father.",
+        "link": null,
+        "vatican_page": "__P8E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2607",
+        "display": "CCC 2607",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2742",
+        "text": "Pray at all times with thanksgiving. Rejoice always, pray constantly, give thanks in all circumstances.",
+        "link": null,
+        "vatican_page": "__P9E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2742",
+        "display": "CCC 2742",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2626",
+        "text": "Blessing expresses the basic movement of Christian prayer: it is an encounter between God and man.",
+        "link": null,
+        "vatican_page": "__P8E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2626",
+        "display": "CCC 2626",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2633",
+        "text": "When we pray for the needs of others, we intercede. Abraham, Moses, and the prophets interceded for the people.",
+        "link": null,
+        "vatican_page": "__P8E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2633",
+        "display": "CCC 2633",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "faith": [
+      {
+        "ccc": "CCC 142",
+        "text": "By faith, man completely submits his intellect and will to God. With his whole being man gives his assent to God who reveals.",
+        "link": null,
+        "vatican_page": "__P3E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "142",
+        "display": "CCC 142",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 161",
+        "text": "Faith is necessary for salvation. The Lord himself affirms: He who believes and is baptized will be saved.",
+        "link": null,
+        "vatican_page": "__P3E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "161",
+        "display": "CCC 161",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 166",
+        "text": "Faith is a personal act and also ecclesial. We believe because the Church believes.",
+        "link": null,
+        "vatican_page": "__P3E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "166",
+        "display": "CCC 166",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1814",
+        "text": "Faith is the theological virtue by which we believe in God and believe all that he has said and revealed to us.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1814",
+        "display": "CCC 1814",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "love": [
+      {
+        "ccc": "CCC 1822",
+        "text": "Charity is the theological virtue by which we love God above all things for his own sake, and our neighbor as ourselves for the love of God.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1822",
+        "display": "CCC 1822",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1827",
+        "text": "The fruits of charity are joy, peace, and mercy. Charity edifies and bears much fruit.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1827",
+        "display": "CCC 1827",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1829",
+        "text": "The fruits of the Spirit are perfections that the Holy Spirit forms in us as the first fruits of eternal glory.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1829",
+        "display": "CCC 1829",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2212",
+        "text": "The fourth commandment illuminates relationships in society. It speaks of our duties to family and community.",
+        "link": null,
+        "vatican_page": "__P7C.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2212",
+        "display": "CCC 2212",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "hope": [
+      {
+        "ccc": "CCC 1817",
+        "text": "Hope is the theological virtue by which we desire the kingdom of heaven and eternal life as our happiness.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1817",
+        "display": "CCC 1817",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1820",
+        "text": "Christian hope unfolds from the beginning of Jesus' preaching in the proclamation of the beatitudes.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1820",
+        "display": "CCC 1820",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1821",
+        "text": "We can therefore hope in the glory of heaven promised by God to those who love him and do his will.",
+        "link": null,
+        "vatican_page": "__P5E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1821",
+        "display": "CCC 1821",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "suffering": [
+      {
+        "ccc": "CCC 1501",
+        "text": "Illness can lead to anguish and self-absorption, sometimes even to despair and revolt against God.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1501",
+        "display": "CCC 1501",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1521",
+        "text": "Union with the passion of Christ. By the grace of this sacrament the sick person receives the strength and gift of uniting himself more closely to Christ's Passion.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1521",
+        "display": "CCC 1521",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2015",
+        "text": "The way of perfection passes by way of the Cross. There is no holiness without renunciation and spiritual battle.",
+        "link": null,
+        "vatican_page": "__P6E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2015",
+        "display": "CCC 2015",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 324",
+        "text": "God permits evil in order to draw forth some greater good. Out of the greatest moral evil, God brought the greatest good: the redemption.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "324",
+        "display": "CCC 324",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "forgiveness": [
+      {
+        "ccc": "CCC 2842",
+        "text": "This 'as' is not unique in Jesus' teaching. Our prayer is answered only if we ourselves have forgiven first.",
+        "link": null,
+        "vatican_page": "__P9E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2842",
+        "display": "CCC 2842",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2844",
+        "text": "Christian prayer extends to the forgiveness of enemies, transfiguring the disciple by configuring him to his Master.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2844",
+        "display": "CCC 2844",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 982",
+        "text": "There is no offense, however serious, that the Church cannot forgive. There is no one so wicked that Christ does not offer salvation.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "982",
+        "display": "CCC 982",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2839",
+        "text": "This mercy is not merely a word. It is the love that goes beyond measure, the love that forgives.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2839",
+        "display": "CCC 2839",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "eucharist": [
+      {
+        "ccc": "CCC 1324",
+        "text": "The Eucharist is the source and summit of the Christian life. All other sacraments are oriented to the Eucharist.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1324",
+        "display": "CCC 1324",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1374",
+        "text": "In the most blessed sacrament of the Eucharist the body and blood, together with the soul and divinity, of our Lord Jesus Christ is truly, really, and substantially contained.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1374",
+        "display": "CCC 1374",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 1413",
+        "text": "By the consecration the transubstantiation of the bread and wine into the Body and Blood of Christ is brought about.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1413",
+        "display": "CCC 1413",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "mary": [
+      {
+        "ccc": "CCC 963",
+        "text": "The Virgin Mary is acknowledged and honored as being truly the Mother of God and of the Redeemer.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "963",
+        "display": "CCC 963",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 969",
+        "text": "Mary's role in the Church is inseparable from her union with Christ and flows directly from it.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "969",
+        "display": "CCC 969",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2677",
+        "text": "In prayer we unite ourselves to the heart of Mary, as she pondered these things in her heart.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2677",
+        "display": "CCC 2677",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 495",
+        "text": "Called in the Gospels 'the Mother of Jesus', Mary is acclaimed by Elizabeth as 'the mother of my Lord'.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "495",
+        "display": "CCC 495",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "saints": [
+      {
+        "ccc": "CCC 828",
+        "text": "By canonizing some of the faithful, the Church proclaims that they practiced heroic virtue and lived in fidelity to God's grace.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "828",
+        "display": "CCC 828",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 957",
+        "text": "Communion with the saints joins us to Christ, from whom as from its fountain and head issues all grace and all life.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "957",
+        "display": "CCC 957",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 956",
+        "text": "The intercession of the saints. Being more closely united to Christ, those who dwell in heaven fix the whole Church more firmly in holiness.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "956",
+        "display": "CCC 956",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "scripture": [
+      {
+        "ccc": "CCC 101",
+        "text": "The Church has always venerated the divine Scriptures just as she venerates the body of the Lord.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "101",
+        "display": "CCC 101",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 104",
+        "text": "In Sacred Scripture the Church finds constant nourishment and strength. She receives with joy the bread of life.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "104",
+        "display": "CCC 104",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 131",
+        "text": "And such is the force and power of the Word of God that it can serve the Church as her support and vigor.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "131",
+        "display": "CCC 131",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 102",
+        "text": "Through all the words of Sacred Scripture, God speaks only one single Word, his one Utterance in whom he expresses himself fully.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "102",
+        "display": "CCC 102",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "church": [
+      {
+        "ccc": "CCC 748",
+        "text": "The Church is the People of God. God does not belong exclusively to any one people.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "748",
+        "display": "CCC 748",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 763",
+        "text": "The Church was prepared in the Old Covenant and instituted by Christ through his death and resurrection.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "763",
+        "display": "CCC 763",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 811",
+        "text": "This is the sole Church of Christ, which in the Creed we profess to be one, holy, catholic and apostolic.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "811",
+        "display": "CCC 811",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "mercy": [
+      {
+        "ccc": "CCC 1846",
+        "text": "The Gospel is the revelation in Jesus Christ of God's mercy to sinners.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1846",
+        "display": "CCC 1846",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2839",
+        "text": "This mercy is not merely a word. It is the love that goes beyond measure.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2839",
+        "display": "CCC 2839",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 270",
+        "text": "God's almighty power is in no way arbitrary. It is the power of a Father who loves his children.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "270",
+        "display": "CCC 270",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2840",
+        "text": "If we refuse to forgive, our prayer cannot be heard. God's mercy cannot penetrate our closed heart.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2840",
+        "display": "CCC 2840",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "grace": [
+      {
+        "ccc": "CCC 1996",
+        "text": "Grace is favor, the free and undeserved help that God gives us to respond to his call.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1996",
+        "display": "CCC 1996",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2000",
+        "text": "Sanctifying grace is a habitual gift, a stable and supernatural disposition that perfects the soul itself.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2000",
+        "display": "CCC 2000",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2023",
+        "text": "Sanctifying grace makes us pleasing to God and enables us to live as his children.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2023",
+        "display": "CCC 2023",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "peace": [
+      {
+        "ccc": "CCC 2304",
+        "text": "Respect for and development of human life require peace. Peace is not merely the absence of war.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2304",
+        "display": "CCC 2304",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2305",
+        "text": "Peace is the work of justice and the effect of charity. It requires respect for human dignity.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2305",
+        "display": "CCC 2305",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2437",
+        "text": "Love of country and responsibility for the common good are noble sentiments that promote peace.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2437",
+        "display": "CCC 2437",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "family": [
+      {
+        "ccc": "CCC 2201",
+        "text": "The Christian family is a communion of persons, a sign and image of the communion of the Father and the Son.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2201",
+        "display": "CCC 2201",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2204",
+        "text": "The Christian family constitutes a specific revelation and realization of ecclesial communion.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2204",
+        "display": "CCC 2204",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2223",
+        "text": "Parents have the first responsibility for the education of their children in the faith.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2223",
+        "display": "CCC 2223",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ],
+    "default": [
+      {
+        "ccc": "CCC 1",
+        "text": "God, infinitely perfect and blessed in himself, created man out of sheer goodness to share in his blessed life.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "1",
+        "display": "CCC 1",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 27",
+        "text": "The desire for God is written in the human heart, because man is created by God and for God.",
+        "link": null,
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "27",
+        "display": "CCC 27",
+        "format": "Text reference only - paragraph number is universal citation"
+      },
+      {
+        "ccc": "CCC 2559",
+        "text": "Prayer is the raising of one's mind and heart to God.",
+        "link": null,
+        "vatican_page": "__P8E.HTM",
+        "vatican_format": "Anchor link to paragraph",
+        "source": "Catechism of the Catholic Church",
+        "paragraph": "2559",
+        "display": "CCC 2559",
+        "format": "Text reference only - paragraph number is universal citation"
+      }
+    ]
+  },
+  "last_updated": "2026-02-28",
+  "url_format": "Text-only references (no hyperlinks)",
+  "notes": "CCC paragraph numbers are universal citations. Readers can look up in any CCC source (print, online, app).",
+  "alternative": "Consider text-only CCC references (e.g., \"CCC 2842\") without hyperlinks for maximum reliability",
+  "rationale": "Many Catholic publishers use text-only CCC references for reliability. Paragraph numbers work across all editions and platforms."
+}

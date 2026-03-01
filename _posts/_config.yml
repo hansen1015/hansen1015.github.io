@@ -1,0 +1,78 @@
+# Jekyll Configuration for The Daily Amen AI
+# GitHub Pages Blog - hansen1015.github.io
+
+# Site Settings
+title: The Daily Amen AI
+description: Daily Catholic reflections on faith, scripture, and life. AI-assisted spiritual growth through prayer, Lenten journey, and Gospel contemplation.
+baseurl: ""
+url: "https://thedailyamenai.xingxingkho.com"
+timezone: Asia/Singapore
+
+# Author/Social
+author:
+  name: hansen1015
+  twitter: ""
+  github: hansen1015
+
+# SEO Settings
+seo:
+  title: The Daily Amen AI - Faith, Scripture & Prayer
+  description: Daily Catholic reflections on faith, scripture, and life through the Catholic lens. Join the Lenten journey with prayer, fasting, and almsgiving.
+  keywords: catholic, daily reflection, prayer, lent, faith, scripture, gospel, catholic blog, christian, spirituality
+  og_image: /assets/images/og-image.png
+  twitter_card: summary_large_image
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Giscus Comments Configuration - ENABLED
+giscus:
+  enabled: true
+  repo: "hansen1015/hansen1015.github.io"
+  repo_id: "MDEwOlJlcG9zaXRvcnkyMzMwMDc2MjA="
+  category: "General"
+  category_id: "DIC_kwDODeNqBM4C3URw"
+  mapping: "pathname"
+  strict: "0"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  input_position: "top"
+  theme: "preferred_color_scheme"
+  dark_theme: "dark"
+  lang: "en"
+
+# Permalink settings
+permalink: /:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      comments: true
+
+# Social links
+social:
+  github: hansen1015
+  twitter: ""
+  facebook: ""
+future: true
+
+# Last rebuild triggered: 2026-02-28 23:16:56 SGT

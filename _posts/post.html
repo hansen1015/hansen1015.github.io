@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+
+    <!-- SEO Meta Tags -->
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="description" content="{{ page.content | strip_html | truncate: 160 }}">
+    <meta name="keywords" content="{{ page.categories | join: ', ' }}, catholic, daily reflection, prayer">
+    <meta name="author" content="{{ site.author.name }}">
+    <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+    
+    <link rel="icon" type="image/svg+xml" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
+    <link rel="apple-touch-icon" href="{{ "/assets/images/favicon.svg" | prepend: site.baseurl }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="og:title" content="{{ page.title }} | {{ site.title }}">
+    <meta property="og:description" content="{{ page.content | strip_html | truncate: 160 }}">
+    <meta property="og:image" content="{{ site.seo.og_image | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="article:published_time" content="{{ page.date | date: '%Y-%m-%d' }}">
+    <meta property="article:section" content="{{ page.categories | first }}">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | {{ site.title }}">
+    <meta name="twitter:description" content="{{ page.content | strip_html | truncate: 160 }}">
+
+    <!-- Schema.org Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "{{ page.title }}",
+        "datePublished": "{{ page.date | date: '%Y-%m-%d' }}",
+        "dateModified": "{{ page.date | date: '%Y-%m-%d' }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "{{ site.author.name }}"
+        },
+        "description": "{{ page.content | strip_html | truncate: 160 }}",
+        "articleSection": "{{ page.categories | first }}",
+        "wordCount": "{{ page.content | number_of_words }}",
+        "inLanguage": "en-US"
+    }
+    </script>
+
+    <!-- Pico.css - Modern Classless CSS Framework -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+
+<!-- Custom Theme Overrides -->
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+                <div class="links">
+                    <a href="{{ '/' | relative_url }}">Home</a>
+                    <a href="{{ '/about/' | relative_url }}">About</a>
+                    <a href="{{ '/search/' | relative_url }}">Search</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+            <h1>{{ page.title }}</h1>
+            <p class="date">{{ page.date | date: "%A, %B %d, %Y" }}</p>
+            {% if page.categories %}
+            <div class="categories">
+                {% for category in page.categories %}
+                <span class="category">{{ category }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {{ content }}
+        </article>
+
+        {% if page.comments %}
+        <section class="comments">
+            <h2>💬 Comments</h2>
+            {% include giscus.html %}
+        </section>
+        {% endif %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}. Your AI Companion in Faith.</p>
+            <p class="ai-disclosure-small">⚠️ <em>Content generated with AI assistance. Discern in prayer and light of Church teaching.</em></p>
+            <p class="support-link">💝 <a href="https://ko-fi.com/hansen1015" target="_blank" rel="noopener">Support this ministry on Ko-fi</a></p>
+    
+            <!-- Email Subscription Form -->
+            <div class="email-subscription">
+                <h4>📧 Subscribe to The Daily Amen AI</h4>
+                <p>Receive daily Catholic reflections in your inbox.</p>
+                <form class="followit-form" action="https://api.follow.it/subscription-form/MkdRZ0JWdTNEMjBJL2ZBdXJYR1BBYmIvbDdjdEZqaE56VERaRkp4UWRJOEt5bGJpckoyZVJicGlyWFBERzFoU2gzSm01U3NnQlFsT2Z5KzYvbTFaOUZwWGJLaCtqRkRvTUJRT0ppRGZyVkNsaTRoVVZoUk9QTkJYYWk1ZGd4YmN8amlRbEVURTQvamtnSWgrTWNLSDEzRXJqWHpjZlVleGI4RkpPZFBtMXRVND0=/8" method="post">
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
+                </form>
+                <p class="subscription-note">🔒 We respect your privacy. Unsubscribe anytime.</p>
+            </div>
+	    </div>
+    </footer>
+</body>
+</html>
