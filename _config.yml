@@ -6,6 +6,7 @@ title: The Daily Amen AI
 description: Daily Catholic reflections on faith, scripture, and life. AI-assisted spiritual growth through prayer, Lenten journey, and Gospel contemplation.
 baseurl: ""
 url: "https://thedailyamenai.xingxingkho.com"
+timezone: Asia/Singapore
 
 # Author/Social
 author:
@@ -72,3 +73,6 @@ social:
   github: hansen1015
   twitter: ""
   facebook: ""
+future: true
+
+# Last rebuild triggered: 2026-02-28 23:16:56 SGT
