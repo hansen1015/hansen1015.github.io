@@ -1,0 +1,9 @@
+# Robots.txt for The Daily Amen AI
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hansen1015.github.io/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1

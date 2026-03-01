@@ -1,0 +1,272 @@
+{
+  "description": "Holy Bible - Key Verses for Daily Reflections",
+  "translation": "Revised Standard Version Catholic Edition (RSV-CE)",
+  "themes": {
+    "prayer": [
+      {
+        "ref": "Matthew 6:6",
+        "text": "But when you pray, go into your room and shut the door and pray to your Father who is in secret; and your Father who sees in secret will reward you.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "1 Thessalonians 5:17",
+        "text": "Pray constantly, give thanks in all circumstances.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Philippians 4:6-7",
+        "text": "Have no anxiety about anything, but in everything by prayer and supplication with thanksgiving let your requests be made known to God.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 62:8",
+        "text": "Trust in him at all times, O people; pour out your heart before him.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Jeremiah 29:12",
+        "text": "Then you will call upon me and come and pray to me, and I will hear you.",
+        "testament": "Old Testament"
+      }
+    ],
+    "faith": [
+      {
+        "ref": "Hebrews 11:1",
+        "text": "Now faith is the assurance of things hoped for, the conviction of things not seen.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Mark 11:22-24",
+        "text": "Have faith in God. Truly, I say to you, whoever says to this mountain, 'Be taken up and thrown into the sea,' and does not doubt in his heart, but believes that what he says will come to pass, it will be done for him.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Romans 10:17",
+        "text": "So faith comes from hearing, and hearing through the word of Christ.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "2 Corinthians 5:7",
+        "text": "For we walk by faith, not by sight.",
+        "testament": "New Testament"
+      }
+    ],
+    "love": [
+      {
+        "ref": "1 Corinthians 13:4-7",
+        "text": "Love is patient and kind; love is not jealous or boastful; it is not arrogant or rude. Love does not insist on its own way; it is not irritable or resentful; it does not rejoice at wrong, but rejoices in the right. Love bears all things, believes all things, hopes all things, endures all things.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "John 13:34-35",
+        "text": "A new commandment I give to you, that you love one another; even as I have loved you, that you also love one another. By this all men will know that you are my disciples, if you have love for one another.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "1 John 4:8",
+        "text": "He who does not love does not know God; for God is love.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Romans 8:38-39",
+        "text": "For I am sure that neither death, nor life, nor angels, nor principalities, nor things present, nor things to come, nor powers, nor height, nor depth, nor anything else in all creation, will be able to separate us from the love of God in Christ Jesus our Lord.",
+        "testament": "New Testament"
+      }
+    ],
+    "hope": [
+      {
+        "ref": "Romans 15:13",
+        "text": "May the God of hope fill you with all joy and peace in believing, so that by the power of the Holy Spirit you may abound in hope.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Jeremiah 29:11",
+        "text": "For I know the plans I have for you, says the Lord, plans for welfare and not for evil, to give you a future and a hope.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Psalm 39:7",
+        "text": "And now, O Lord, what do I wait for? My hope is in you.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "1 Peter 1:3",
+        "text": "Blessed be the God and Father of our Lord Jesus Christ! By his great mercy we have been born anew to a living hope through the resurrection of Jesus Christ from the dead.",
+        "testament": "New Testament"
+      }
+    ],
+    "suffering": [
+      {
+        "ref": "2 Corinthians 1:3-4",
+        "text": "Blessed be the God and Father of our Lord Jesus Christ, the Father of mercies and God of all comfort, who comforts us in all our affliction, so that we may be able to comfort those who are in any affliction.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Romans 8:18",
+        "text": "I consider that the sufferings of this present time are not worth comparing with the glory that is to be revealed to us.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 34:18",
+        "text": "The Lord is near to the brokenhearted, and saves the crushed in spirit.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Matthew 5:4",
+        "text": "Blessed are those who mourn, for they shall be comforted.",
+        "testament": "New Testament"
+      }
+    ],
+    "forgiveness": [
+      {
+        "ref": "Matthew 6:14-15",
+        "text": "For if you forgive men their trespasses, your heavenly Father also will forgive you; but if you do not forgive men their trespasses, neither will your Father forgive your trespasses.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Colossians 3:13",
+        "text": "Forgive each other; as the Lord has forgiven you, so you also must forgive.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "1 John 1:9",
+        "text": "If we confess our sins, he is faithful and just, and will forgive our sins and cleanse us from all unrighteousness.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Ephesians 4:32",
+        "text": "Be kind to one another, tenderhearted, forgiving one another, as God in Christ forgave you.",
+        "testament": "New Testament"
+      }
+    ],
+    "peace": [
+      {
+        "ref": "John 14:27",
+        "text": "Peace I leave with you; my peace I give to you; not as the world gives do I give to you. Let not your hearts be troubled, neither let them be afraid.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Philippians 4:7",
+        "text": "And the peace of God, which passes all understanding, will keep your hearts and your minds in Christ Jesus.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Romans 15:33",
+        "text": "May the God of peace be with you all. Amen.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 29:11",
+        "text": "May the Lord give strength to his people! May the Lord bless his people with peace!",
+        "testament": "Old Testament"
+      }
+    ],
+    "strength": [
+      {
+        "ref": "Isaiah 40:31",
+        "text": "But they who wait for the Lord shall renew their strength, they shall mount up with wings like eagles, they shall run and not be weary, they shall walk and not faint.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Philippians 4:13",
+        "text": "I can do all things in him who strengthens me.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 46:1",
+        "text": "God is our refuge and strength, a very present help in trouble.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "2 Corinthians 12:9",
+        "text": "My grace is sufficient for you, for my power is made perfect in weakness.",
+        "testament": "New Testament"
+      }
+    ],
+    "wisdom": [
+      {
+        "ref": "James 1:5",
+        "text": "If any of you lacks wisdom, let him ask God, who gives generously to all without reproach, and it will be given him.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Proverbs 3:5-6",
+        "text": "Trust in the Lord with all your heart, and lean not on your own understanding. In all your ways acknowledge him, and he will make straight your paths.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "1 Corinthians 1:25",
+        "text": "For the foolishness of God is wiser than men, and the weakness of God is stronger than men.",
+        "testament": "New Testament"
+      }
+    ],
+    "gratitude": [
+      {
+        "ref": "1 Thessalonians 5:18",
+        "text": "Give thanks in all circumstances, for this is the will of God in Christ Jesus for you.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 100:4",
+        "text": "Enter his gates with thanksgiving, and his courts with praise! Give thanks to him, bless his name!",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Colossians 3:17",
+        "text": "And whatever you do, in word or deed, do everything in the name of the Lord Jesus, giving thanks to God the Father through him.",
+        "testament": "New Testament"
+      }
+    ],
+    "salvation": [
+      {
+        "ref": "John 3:16",
+        "text": "For God so loved the world that he gave his only Son, that whoever believes in him should not perish but have eternal life.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Romans 10:9",
+        "text": "Because, if you confess with your lips that Jesus is Lord and believe in your heart that God raised him from the dead, you will be saved.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Ephesians 2:8-9",
+        "text": "For by grace you have been saved through faith; and this is not your own doing, it is the gift of God—not because of works, lest any man should boast.",
+        "testament": "New Testament"
+      }
+    ],
+    "mercy": [
+      {
+        "ref": "Psalm 103:8",
+        "text": "The Lord is merciful and gracious, slow to anger and abounding in steadfast love.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Luke 6:36",
+        "text": "Be merciful, even as your Father is merciful.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Titus 3:5",
+        "text": "He saved us, not because of deeds done by us in righteousness, but in virtue of his own mercy.",
+        "testament": "New Testament"
+      }
+    ],
+    "default": [
+      {
+        "ref": "John 3:16",
+        "text": "For God so loved the world that he gave his only Son, that whoever believes in him should not perish but have eternal life.",
+        "testament": "New Testament"
+      },
+      {
+        "ref": "Psalm 23:1",
+        "text": "The Lord is my shepherd, I shall not want.",
+        "testament": "Old Testament"
+      },
+      {
+        "ref": "Matthew 28:20",
+        "text": "And behold, I am with you always, to the close of the age.",
+        "testament": "New Testament"
+      }
+    ]
+  }
+}
